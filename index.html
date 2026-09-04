@@ -53,6 +53,7 @@
             padding: 0 20px;
         }
 
+        /* ОСНОВНА ЧЕРВОНА КНОПКА */
         .btn {
             display: block;
             width: 100%;
@@ -70,6 +71,33 @@
             border: 1px solid var(--gold);
             box-shadow: 0 0 20px rgba(139, 0, 0, 0.6);
             transition: all 0.3s ease;
+        }
+
+        /* НАПІВПРОЗОРА КНОПКА */
+        .btn-transparent {
+            display: block;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.08); /* Напівпрозорий фон */
+            color: var(--text-main);
+            padding: 20px 0;
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Напівпрозора рамка */
+            backdrop-filter: blur(8px); /* Ефект матового скла */
+            transition: all 0.3s ease;
+            margin-top: 15px; /* Відступ від верхньої кнопки */
+        }
+        
+        .btn-transparent:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--gold);
+            color: var(--gold-light);
         }
 
         .btn-outline {
@@ -117,7 +145,7 @@
             
             /* ФІКСАЦІЯ ЗВЕРХУ */
             position: absolute;
-            top: 50px; /* Відступ від самого верху екрану */
+            top: 50px; 
             left: 50%;
             transform: translateX(-50%);
             width: 100%;
@@ -349,9 +377,10 @@
         
         <div class="container" style="z-index: 10;">
             <h1>Алхімія Тіні</h1>
-            <h2>Прояв душі в матеріальному світі через інтеграцію Тіні, зміну сприйняття та реальні дії.</h2>
+            <h2>Прояв душі в матеріальному світі через інтеграцію Тіні, зміну сприйняття та вихід із внутрішніх конфліктів у реалізацію.</h2>
             
-            <a href="#tariffs" class="btn">Забронювати місце</a>
+            <a href="#tariffs" class="btn">Придбати курс</a>
+            <a href="#program" class="btn-transparent">Програма курсу</a>
         </div>
     </header>
 
