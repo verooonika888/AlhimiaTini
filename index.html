@@ -2,13 +2,13 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Алхімія Тіні | Авторська програма Влади Слави</title>
-    <!-- Підключення преміальних шрифтів -->
+    <!-- Жорстка фіксація для мобільних пристроїв, заборона масштабування (щоб не йорзало) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Алхімія Тіні | Авторська програма</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* Базові змінні кольорів та стилів */
         :root {
             --bg-main: #050505;
             --bg-secondary: #0d0606;
@@ -26,30 +26,43 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { scroll-behavior: smooth; }
+        html { 
+            scroll-behavior: smooth; 
+            background-color: #000; /* Чорний фон поза межами мобільного екрану на ПК */
+            display: flex;
+            justify-content: center;
+        }
 
+        /* ЖОРСТКА ФІКСАЦІЯ ПІД iPHONE 14 PRO */
         body {
             background-color: var(--bg-main);
             color: var(--text-main);
             font-family: 'Montserrat', sans-serif;
-            line-height: 1.7;
-            overflow-x: hidden;
+            line-height: 1.6;
+            width: 100%;
+            max-width: 430px; /* Стандартна ширина великих айфонів */
+            overflow-x: hidden; /* Блокування горизонтального йорзання */
+            position: relative;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            margin: 0;
         }
 
         h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; font-weight: normal; }
 
+        /* Контейнер з відступами виключно для мобільного */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
             padding: 0 20px;
         }
 
-        /* Преміальні кнопки */
+        /* Мобільні кнопки на всю ширину */
         .btn {
-            display: inline-block;
+            display: block;
+            width: 100%;
             background: linear-gradient(135deg, var(--accent-red) 0%, var(--bright-red) 100%);
             color: white;
-            padding: 18px 45px;
+            padding: 20px 0;
+            text-align: center;
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
@@ -59,14 +72,7 @@
             border-radius: 4px;
             border: 1px solid var(--gold);
             box-shadow: 0 0 20px rgba(139, 0, 0, 0.6);
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            box-shadow: 0 0 35px rgba(204, 0, 0, 0.8), inset 0 0 10px rgba(255,255,255,0.2);
-            transform: translateY(-3px);
-            color: white;
+            transition: all 0.3s ease;
         }
 
         .btn-outline {
@@ -76,69 +82,52 @@
             color: var(--gold-light);
         }
 
-        .btn-outline:hover {
-            background: rgba(197, 160, 89, 0.1);
-            box-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
-        }
-
-        /* Анімація світіння (Дим) */
+        /* Дим на фоні (обмежений розмір, щоб не розтягував екран) */
         .glow-bg {
             position: absolute;
-            width: 600px;
-            height: 600px;
+            width: 150vw;
+            height: 150vw;
             background: radial-gradient(circle, var(--dark-red) 0%, transparent 70%);
             z-index: -1;
-            opacity: 0.6;
+            opacity: 0.5;
             border-radius: 50%;
-            filter: blur(50px);
+            filter: blur(40px);
+            pointer-events: none;
         }
 
-        /* --- БЛОК 1: ГОЛОВНИЙ ЕКРАН --- */
+        /* --- БЛОК 1: HERO SECTION --- */
         .hero {
             position: relative;
-            min-height: 100vh;
+            min-height: 100svh; /* svh вирішує проблему з панеллю Safari на iOS */
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 120px 20px;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100vw; height: 100vh;
-            background: radial-gradient(circle at center, rgba(58, 0, 0, 0.4) 0%, var(--bg-main) 80%);
-            z-index: -2;
+            padding: 60px 0;
         }
 
         .hero-subtitle {
             color: var(--gold);
-            font-size: 14px;
-            letter-spacing: 4px;
+            font-size: 12px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-weight: 500;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: 3rem; /* Ідеальний розмір для мобільного */
             color: var(--gold-light);
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(197, 160, 89, 0.3);
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(197, 160, 89, 0.3);
             margin-bottom: 20px;
             text-transform: uppercase;
             line-height: 1.1;
         }
 
         .hero h2 {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            max-width: 800px;
-            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            margin: 0 auto 30px;
             color: var(--text-main);
-            font-family: 'Montserrat', sans-serif;
             font-weight: 300;
         }
 
@@ -146,297 +135,216 @@
             font-style: italic;
             font-family: 'Playfair Display', serif;
             color: var(--gold);
-            margin: 0 auto 50px;
-            font-size: 1.3rem;
-            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
             border-top: 1px solid var(--gold-dark);
             border-bottom: 1px solid var(--gold-dark);
-            padding: 20px 0;
+            padding: 15px 0;
         }
 
-        /* --- СПІЛЬНІ СТИЛІ СЕКЦІЙ --- */
+        /* --- СЕКЦІЇ (Мобільні відступи) --- */
         section {
-            padding: 120px 0;
+            padding: 70px 0;
             position: relative;
         }
 
-        section:nth-child(even) {
-            background-color: var(--bg-secondary);
-        }
+        section:nth-child(even) { background-color: var(--bg-secondary); }
 
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             color: var(--gold-light);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            line-height: 1.2;
         }
 
         .section-subtitle {
             text-align: center;
             color: var(--text-muted);
-            margin-bottom: 70px;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 40px;
+            font-size: 1rem;
         }
 
-        /* --- БЛОК 2 & 4: КАРТКИ (Грід) --- */
-        .grid-3, .grid-4 {
-            display: grid;
-            gap: 30px;
-        }
-        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-
+        /* --- КАРТКИ (ОДНА ПІД ОДНОЮ) --- */
         .glass-card {
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
-            padding: 40px 30px;
+            padding: 30px 20px;
             border-radius: 4px;
-            transition: all 0.4s ease;
+            margin-bottom: 20px;
             position: relative;
-            overflow: hidden;
         }
-
-        .glass-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: -100%;
-            width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.1), transparent);
-            transition: all 0.6s ease;
-        }
-
-        .glass-card:hover {
-            border-color: var(--gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(197, 160, 89, 0.05);
-            transform: translateY(-5px);
-        }
-
-        .glass-card:hover::before { left: 200%; }
 
         .glass-card h3 {
             color: var(--gold-light);
-            font-size: 1.4rem;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
             line-height: 1.3;
         }
 
-        /* --- БЛОК 3: ІНСТРУМЕНТИ (Список) --- */
-        .tools-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 50px;
-        }
-        .tools-text { flex: 1; min-width: 300px; }
+        /* --- ІНСТРУМЕНТИ --- */
         .tools-list { list-style: none; }
         .tools-list li {
             position: relative;
-            padding-left: 40px;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
+            padding-left: 35px;
+            margin-bottom: 20px;
+            font-size: 1rem;
         }
         .tools-list li::before {
             content: "✦";
             position: absolute;
             left: 0; top: 2px;
             color: var(--gold);
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
 
-        /* --- БЛОК 5: ПРОГРАМА (Таймлайн) --- */
-        .timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
+        /* --- ТАЙМЛАЙН ПРОГРАМИ --- */
+        .timeline { position: relative; padding-left: 10px; }
         .timeline::before {
             content: '';
             position: absolute;
-            top: 0; bottom: 0; left: 20px;
+            top: 0; bottom: 0; left: 16px;
             width: 1px;
             background: linear-gradient(to bottom, var(--gold) 0%, transparent 100%);
         }
         .phase-title {
             color: var(--accent-red);
-            font-size: 2rem;
-            margin: 50px 0 30px 40px;
-            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin: 40px 0 20px 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            background: var(--bg-main);
+            padding: 10px 0;
         }
         .module {
             position: relative;
-            margin-bottom: 40px;
-            padding-left: 60px;
+            margin-bottom: 35px;
+            padding-left: 45px;
         }
         .module::before {
             content: '';
             position: absolute;
-            left: 15px; top: 8px;
-            width: 12px; height: 12px;
+            left: 2px; top: 6px;
+            width: 10px; height: 10px;
             border-radius: 50%;
             background: var(--bg-main);
             border: 2px solid var(--gold);
-            box-shadow: 0 0 10px var(--gold);
+            box-shadow: 0 0 8px var(--gold);
         }
-        .module h4 {
-            color: var(--gold-light);
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-        .module span { color: var(--gold-dark); font-family: 'Montserrat', sans-serif; font-size: 0.9rem; letter-spacing: 1px;}
+        .module h4 { color: var(--gold-light); font-size: 1.2rem; margin-bottom: 8px; }
+        .module span { color: var(--gold-dark); font-size: 0.85rem; letter-spacing: 1px;}
+        .module p { font-size: 0.95rem; }
 
-        /* --- БЛОК 6: ЕКСПЕРТИ --- */
-        .experts-flex {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-        .expert-card {
-            text-align: center;
-            max-width: 350px;
-        }
+        /* --- ЕКСПЕРТИ --- */
+        .expert-card { text-align: center; margin-bottom: 40px; }
         .expert-photo {
-            width: 250px; height: 320px;
-            margin: 0 auto 25px;
-            border-radius: 150px 150px 0 0; /* Форма арки */
+            width: 200px; height: 260px;
+            margin: 0 auto 20px;
+            border-radius: 120px 120px 0 0;
             border: 1px solid var(--gold);
-            background: #1a1a1a; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-            /* ТУТ БУДЕ ФОТО: background-image: url('photo.jpg'); background-size: cover; */
+            background: #1a1a1a;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
-        .expert-card h3 { font-size: 1.8rem; color: var(--gold-light); margin-bottom: 10px;}
-        .expert-card p { color: var(--text-muted); }
+        .expert-card h3 { font-size: 1.6rem; color: var(--gold-light); margin-bottom: 5px;}
+        .expert-card p { font-size: 0.95rem; color: var(--text-muted); padding: 0 20px;}
 
-        /* --- БЛОК 7: ТАРИФИ --- */
-        .tariffs-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
+        /* --- ТАРИФИ --- */
         .tariff {
-            flex: 1;
-            min-width: 320px;
-            max-width: 400px;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            padding: 50px 40px;
+            padding: 40px 25px;
             border-radius: 4px;
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 30px;
             position: relative;
         }
         .tariff.pro {
             border: 2px solid var(--gold);
             background: linear-gradient(180deg, rgba(30,0,0,0.8) 0%, rgba(10,10,10,0.9) 100%);
-            transform: scale(1.05);
-            z-index: 2;
-            box-shadow: 0 0 40px rgba(139, 0, 0, 0.3);
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.3);
         }
         .hit-label {
             position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
             background: var(--gold); color: #000;
-            padding: 5px 20px; font-weight: bold; font-size: 12px; letter-spacing: 1px;
-            text-transform: uppercase; border-radius: 20px;
+            padding: 5px 15px; font-weight: bold; font-size: 11px; letter-spacing: 1px;
+            text-transform: uppercase; border-radius: 20px; white-space: nowrap;
         }
-        .tariff h3 { font-size: 1.5rem; text-align: center; margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase;}
-        .tariff ul { list-style: none; flex-grow: 1; margin-bottom: 40px; }
-        .tariff ul li { margin-bottom: 15px; font-size: 0.95rem; padding-left: 25px; position: relative; }
+        .tariff h3 { font-size: 1.4rem; text-align: center; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase;}
+        .tariff ul { list-style: none; margin-bottom: 30px; }
+        .tariff ul li { margin-bottom: 15px; font-size: 0.9rem; padding-left: 25px; position: relative; }
         .tariff ul li::before { content: '✓'; color: var(--gold); position: absolute; left: 0; font-weight: bold;}
-        .t-price { text-align: center; font-size: 2.5rem; font-family: 'Playfair Display', serif; color: var(--gold-light); margin-bottom: 30px; }
-        .old-price { text-decoration: line-through; color: #666; font-size: 1.2rem; }
+        .t-price { text-align: center; font-size: 2.2rem; font-family: 'Playfair Display', serif; color: var(--gold-light); margin-bottom: 25px; }
+        .old-price { text-decoration: line-through; color: #666; font-size: 1.1rem; }
 
-        /* --- БЛОК 8: СПЕЦПРОПОЗИЦІЯ --- */
+        /* --- СПЕЦПРОПОЗИЦІЯ --- */
         .special-offer-box {
             background: linear-gradient(135deg, #2a0000 0%, #050505 100%);
             border: 1px solid var(--gold);
-            padding: 60px;
+            padding: 40px 20px;
             text-align: center;
             border-radius: 4px;
-            position: relative;
-            overflow: hidden;
         }
-        .special-offer-box h2 { font-size: 2.2rem; color: var(--gold-light); margin-bottom: 20px; }
-        .special-offer-box p { font-size: 1.2rem; margin-bottom: 30px; }
-        .special-box-list { display: inline-block; text-align: left; margin-bottom: 40px; font-size: 1.1rem;}
-        .special-box-list li { margin-bottom: 15px; }
+        .special-offer-box h2 { font-size: 1.8rem; color: var(--gold-light); margin-bottom: 15px; }
+        .special-offer-box p { font-size: 1rem; margin-bottom: 25px; }
 
-        /* --- БЛОК 9: ВІДГУКИ --- */
+        /* --- ВІДГУКИ --- */
         .reviews-container {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             overflow-x: auto;
             padding-bottom: 20px;
             scroll-snap-type: x mandatory;
+            /* Ховаємо скролбар для краси */
+            scrollbar-width: none; 
         }
-        .reviews-container::-webkit-scrollbar { height: 6px; }
-        .reviews-container::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+        .reviews-container::-webkit-scrollbar { display: none; }
+        
         .review-card {
-            min-width: 300px;
+            min-width: 280px;
             background: #111;
-            padding: 30px;
+            padding: 25px;
             border: 1px solid var(--glass-border);
             border-radius: 4px;
-            scroll-snap-align: start;
+            scroll-snap-align: center;
         }
-        .review-card p { font-style: italic; font-size: 0.95rem; color: #ccc;}
 
-        /* --- БЛОК 10: FAQ --- */
-        .faq-container { max-width: 800px; margin: 0 auto; }
+        /* --- FAQ --- */
         details {
             background: rgba(255,255,255,0.02);
             border: 1px solid var(--glass-border);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             border-radius: 4px;
-            transition: all 0.3s;
         }
-        details[open] { border-color: var(--gold); background: rgba(197, 160, 89, 0.05); }
+        details[open] { border-color: var(--gold); }
         summary {
-            padding: 25px;
+            padding: 20px;
             font-weight: 500;
-            cursor: pointer;
             color: var(--gold-light);
-            font-size: 1.1rem;
+            font-size: 1rem;
             list-style: none;
             position: relative;
+            padding-right: 40px;
         }
         summary::-webkit-details-marker { display: none; }
         summary::after {
-            content: '+'; position: absolute; right: 25px; top: 25px;
-            color: var(--gold); font-size: 1.5rem; line-height: 1; transition: 0.3s;
+            content: '+'; position: absolute; right: 20px; top: 18px;
+            color: var(--gold); font-size: 1.5rem; line-height: 1;
         }
-        details[open] summary::after { content: '−'; transform: rotate(180deg); }
-        .faq-content { padding: 0 25px 25px; color: var(--text-muted); }
+        details[open] summary::after { content: '−'; }
+        .faq-content { padding: 0 20px 20px; color: var(--text-muted); font-size: 0.95rem; }
 
         /* Footer */
-        footer { border-top: 1px solid #222; padding: 40px 20px; text-align: center; color: #666; font-size: 14px;}
+        footer { border-top: 1px solid #222; padding: 30px 20px; text-align: center; color: #666; font-size: 12px;}
         footer a { color: var(--gold-dark); text-decoration: none;}
-
-        /* Адаптивність */
-        @media (max-width: 992px) {
-            .tariff.pro { transform: scale(1); }
-            .tools-container { flex-direction: column; }
-        }
-        @media (max-width: 768px) {
-            section { padding: 80px 0; }
-            .section-title { font-size: 2.2rem; }
-            .special-offer-box { padding: 40px 20px; }
-            .btn { width: 100%; text-align: center; }
-        }
     </style>
 </head>
 <body>
 
-    <!-- Світловий дим на фоні -->
-    <div class="glow-bg" style="top: -100px; left: -200px;"></div>
-    <div class="glow-bg" style="top: 40%; right: -300px; background: radial-gradient(circle, var(--gold-dark) 0%, transparent 60%); opacity: 0.2;"></div>
+    <div class="glow-bg" style="top: -50px; left: -100px;"></div>
+    <div class="glow-bg" style="top: 35%; right: -150px; background: radial-gradient(circle, var(--gold-dark) 0%, transparent 60%); opacity: 0.2;"></div>
 
-    <!-- БЛОК 1: HERO SECTION -->
+    <!-- HERO SECTION -->
     <header class="hero">
         <div class="container" style="z-index: 10;">
             <div class="hero-subtitle">Авторська програма глибокого переходу</div>
@@ -449,96 +357,84 @@
         </div>
     </header>
 
-    <!-- БЛОК 2: ДЛЯ КОГО -->
+    <!-- ДЛЯ КОГО -->
     <section id="for-whom">
         <div class="container">
             <h2 class="section-title">Для кого програма?</h2>
             <p class="section-subtitle">Якщо ти відчуваєш хоча б один із цих станів, настав час переходу.</p>
             
-            <div class="grid-3">
-                <div class="glass-card">
-                    <h3>Старі способи більше не працюють</h3>
-                    <p>Звичні опори, цілі та моделі життя не дають відчуття стабільності. Ти розумієш, що повернутися до попередньої версії себе неможливо, але ще не знаєш, як жити далі.</p>
-                </div>
-                <div class="glass-card">
-                    <h3>Втома від нескінченної «роботи над собою»</h3>
-                    <p>Постійно шукати нові травми, аналізувати минуле, виправляти себе. Ти хочеш сформувати опору та почати жити ВЖЕ ЗАРАЗ.</p>
-                </div>
-                <div class="glass-card">
-                    <h3>Багато знаєш, але життя не змінилося</h3>
-                    <p>Ти знаєш свої сценарії, але усвідомлення не стали новими грошима чи результатами. Потрібна інтеграція знань у матерію.</p>
-                </div>
-                <div class="glass-card">
-                    <h3>Внутрішні суперечності</h3>
-                    <p>Одна частина прагне змін і свободи, інша — боїться втратити контроль і тримається за звичне. Це конфлікт, який краде енергію.</p>
-                </div>
-                <div class="glass-card">
-                    <h3>Не реалізований потенціал</h3>
-                    <p>Ти знаєш, що здатна на більше, але страх змін та залежність від зовнішньої оцінки обмежують твій прояв.</p>
-                </div>
-                <div class="glass-card">
-                    <h3>Мінливий світ</h3>
-                    <p>Ти хочеш навчитися бачити реальність без ілюзій, приймати рішення в умовах невизначеності та створювати власні правила.</p>
-                </div>
+            <div class="glass-card">
+                <h3>Старі способи не працюють</h3>
+                <p>Звичні опори, цілі та моделі життя не дають відчуття стабільності. Ти розумієш, що повернутися до попередньої версії себе неможливо, але ще не знаєш, як жити далі.</p>
+            </div>
+            <div class="glass-card">
+                <h3>Втома від «роботи над собою»</h3>
+                <p>Постійно шукати нові травми, аналізувати минуле, виправляти себе. Ти хочеш сформувати опору та почати жити ВЖЕ ЗАРАЗ.</p>
+            </div>
+            <div class="glass-card">
+                <h3>Знання не змінюють життя</h3>
+                <p>Ти знаєш свої сценарії, але усвідомлення не стали новими грошима чи результатами. Потрібна інтеграція знань у матерію.</p>
+            </div>
+            <div class="glass-card">
+                <h3>Внутрішні суперечності</h3>
+                <p>Одна частина прагне змін, інша — боїться втратити контроль і тримається за звичне. Це конфлікт, який краде енергію.</p>
+            </div>
+            <div class="glass-card">
+                <h3>Світ змінюється</h3>
+                <p>Ти хочеш навчитися бачити реальність без ілюзій, приймати рішення в умовах невизначеності та створювати власні правила.</p>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК 3: УНІКАЛЬНІСТЬ / ІНСТРУМЕНТИ -->
+    <!-- ІНСТРУМЕНТИ -->
     <section>
         <div class="container">
             <h2 class="section-title">Це не підручник, а занурення</h2>
             <p class="section-subtitle">Практичні інструменти трансформації всередині програми.</p>
             
-            <div class="tools-container">
-                <div class="tools-text">
-                    <ul class="tools-list">
-                        <li><b>Щоденник Тіні:</b> практичний інструмент роботи з несвідомим. Письмо знижує автоматизм реакцій, робить несвідоме видимим.</li>
-                        <li><b>Глибинні медитації:</b> інтеграція станів майже після кожного модуля.</li>
-                        <li><b>Тілесні та дихальні практики:</b> зняття блоків на рівні фізичного тіла.</li>
-                        <li><b>Робота з Таро:</b> глибока саморефлексія та пізнання прихованого.</li>
-                        <li><b>Алгоритм із 6 кроків:</b> від побачення ілюзії до втілення змін у твердій матерії.</li>
-                    </ul>
-                </div>
-            </div>
+            <ul class="tools-list">
+                <li><b>Щоденник Тіні:</b> практичний інструмент роботи з несвідомим. Знижує автоматизм реакцій, робить несвідоме видимим.</li>
+                <li><b>Глибинні медитації:</b> інтеграція станів після кожного модуля.</li>
+                <li><b>Тілесні та дихальні практики:</b> зняття блоків на рівні фізичного тіла.</li>
+                <li><b>Робота з Таро:</b> глибока саморефлексія та пізнання прихованого.</li>
+                <li><b>Алгоритм із 6 кроків:</b> від побачення ілюзії до втілення змін у твердій матерії.</li>
+            </ul>
         </div>
     </section>
 
-    <!-- БЛОК 4: РЕЗУЛЬТАТИ -->
+    <!-- РЕЗУЛЬТАТИ -->
     <section id="results">
         <div class="container">
-            <h2 class="section-title">Результати, які отримаєш</h2>
-            <p class="section-subtitle">Внутрішня опора та матеріальний прояв (Гроші, Стосунки, Дія).</p>
+            <h2 class="section-title">Що ти отримаєш</h2>
+            <p class="section-subtitle">Внутрішня опора та матеріальний прояв.</p>
             
-            <div class="grid-4">
-                <div class="glass-card">
-                    <h3>Фундаментальна опора</h3>
-                    <p>Твій стан більше не залежатиме від настрою інших чи зовнішніх криз. Ти стаєш емоційно незалежною Творчинею.</p>
-                </div>
-                <div class="glass-card">
-                    <h3>Заземлення у тверду матерію (Гроші)</h3>
-                    <p>Твоя внутрішня ємність розшириться так, що твої знання та здібності почнуть приносити реальні гроші та статус.</p>
-                </div>
-                <div class="glass-card">
-                    <h3>Твоя Тінь стане паливом</h3>
-                    <p>Те, чого ти боялася (злість, сексуальність, владність), перетвориться на чисту енергію. Ти станеш живою, а не просто «хорошою».</p>
-                </div>
-                <div class="glass-card">
-                    <h3>Чесні стосунки</h3>
-                    <p>Ти скинеш маску зручної жінки, навчишся казати «НІ» без провини та вийдеш із нав'язаних родових сценаріїв жертовності.</p>
-                </div>
+            <div class="glass-card">
+                <h3>Фундаментальна опора</h3>
+                <p>Твій стан більше не залежатиме від настрою інших чи зовнішніх криз. Ти стаєш емоційно незалежною Творчинею.</p>
+            </div>
+            <div class="glass-card">
+                <h3>Гроші та Статус</h3>
+                <p>Твоя внутрішня ємність розшириться так, що твої знання та здібності почнуть приносити реальні гроші у новій реальності.</p>
+            </div>
+            <div class="glass-card">
+                <h3>Твоя Тінь стане паливом</h3>
+                <p>Те, чого ти боялася (злість, сексуальність, владність), перетвориться на чисту енергію. Ти станеш живою.</p>
+            </div>
+            <div class="glass-card">
+                <h3>Чесні стосунки</h3>
+                <p>Ти скинеш маску зручної жінки, навчишся казати «НІ» без провини та вийдеш із нав'язаних сценаріїв жертовності.</p>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК 5: ПРОГРАМА (10 КРОКІВ) -->
+    <!-- ПРОГРАМА -->
     <section id="program">
         <div class="container">
             <h2 class="section-title">Твій план занурення</h2>
-            <p class="section-subtitle">10 кроків від життя, створеного минулим, до здатності жити в новому часі.</p>
+            <p class="section-subtitle">10 кроків від минулого до здатності жити в новому часі.</p>
             
             <div class="timeline">
-                <h3 class="phase-title">Фаза 1: Деконструкція Ілюзій</h3>
+                <h3 class="phase-title">Фаза 1: Деконструкція</h3>
                 
                 <div class="module">
                     <span>Модуль 1</span>
@@ -553,7 +449,7 @@
                 <div class="module">
                     <span>Модуль 3</span>
                     <h4>Структура особистості</h4>
-                    <p>Практичне дослідження твоїх ресурсів, страхів, меж і способів втрати енергії.</p>
+                    <p>Дослідження твоїх ресурсів, страхів, меж і способів втрати енергії.</p>
                 </div>
                 <div class="module">
                     <span>Модуль 4</span>
@@ -566,12 +462,12 @@
                     <p>Як травма спотворює самосприйняття, а витіснена Тінь приховує твою силу.</p>
                 </div>
 
-                <h3 class="phase-title">Фаза 2: Інтеграція та Матерія</h3>
+                <h3 class="phase-title">Фаза 2: Інтеграція</h3>
 
                 <div class="module">
                     <span>Модуль 6</span>
                     <h4>Ілюзії мислення</h4>
-                    <p>Контроль, очікування й осуд як механізми, що крадуть ресурс і спотворюють реальність.</p>
+                    <p>Контроль, очікування й осуд як механізми, що крадуть ресурс.</p>
                 </div>
                 <div class="module">
                     <span>Модуль 7</span>
@@ -586,174 +482,160 @@
                 <div class="module">
                     <span>Модуль 9</span>
                     <h4>Золота Тінь</h4>
-                    <p>Де прихований твій потенціал, здібності, бажання і природний шлях реалізації.</p>
+                    <p>Де прихований твій потенціал, здібності та природний шлях реалізації.</p>
                 </div>
                 <div class="module">
                     <span>Модуль 10</span>
                     <h4>Дія і прояв</h4>
-                    <p>Як діяти з нової внутрішньої точки та втілювати зміни в грошах, стосунках і реалізації.</p>
+                    <p>Як втілювати зміни в грошах, стосунках і реалізації.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК 6: ЕКСПЕРТИ -->
+    <!-- ЕКСПЕРТИ -->
     <section>
         <div class="container">
-            <h2 class="section-title">Наставник та Експерт</h2>
-            <div class="experts-flex">
-                <div class="expert-card">
-                    <div class="expert-photo"></div>
-                    <h3>Влада Слава</h3>
-                    <p>Автор та творець курсу. Провідник до глибинної трансформації.</p>
-                </div>
-                <div class="expert-card">
-                    <div class="expert-photo" style="border-color: #555;"></div>
-                    <h3>Галина</h3>
-                    <p>Запрошений спікер. Провідник/фасилітатор дихальних практик. Повертає контакт із тілом.</p>
-                </div>
+            <h2 class="section-title">Провідники</h2>
+            
+            <div class="expert-card">
+                <div class="expert-photo"></div>
+                <h3>Влада Слава</h3>
+                <p>Автор та творець курсу. Провідник до глибинної трансформації.</p>
+            </div>
+            
+            <div class="expert-card">
+                <div class="expert-photo" style="border-color: #555;"></div>
+                <h3>Галина</h3>
+                <p>Запрошений спікер. Фасилітатор дихальних практик. Повертає контакт із тілом.</p>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК 7: ТАРИФИ -->
+    <!-- ТАРИФИ -->
     <section id="tariffs">
         <div class="container">
             <h2 class="section-title">Тарифи Участі</h2>
             
-            <div class="tariffs-wrapper">
-                <!-- Тариф 1 -->
-                <div class="tariff">
-                    <h3>Самостійний</h3>
-                    <div class="t-price">199€</div>
-                    <ul>
-                        <li>Доступ до всіх 10 модулів курсу на 3 місяці</li>
-                        <li>Уроки відео лекції та Аудіо версії</li>
-                        <li>Презентації-конспекти до уроків</li>
-                        <li>Глибинні медитації та практики</li>
-                        <li>Домашні завдання для самостійної роботи</li>
-                        <li>Чек листи та практичні завдання</li>
-                        <li>Чат спільноти з учасниками</li>
-                        <li>Доступ до лекції зі спікером по диханню і тілу</li>
-                        <li>Створення мною твоєї мапи життя</li>
-                    </ul>
-                    <a href="#" class="btn btn-outline" style="text-align: center;">Обрати тариф</a>
-                </div>
+            <!-- Тариф 1 -->
+            <div class="tariff">
+                <h3>Самостійний</h3>
+                <div class="t-price">199€</div>
+                <ul>
+                    <li>Доступ до всіх 10 модулів курсу на 3 місяці</li>
+                    <li>Відео, аудіо та конспекти</li>
+                    <li>Глибинні медитації та практики</li>
+                    <li>Домашні завдання</li>
+                    <li>Чат спільноти</li>
+                    <li>Створення мапи життя</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Обрати тариф</a>
+            </div>
 
-                <!-- Тариф 2 PRO -->
-                <div class="tariff pro">
-                    <div class="hit-label">Повне занурення</div>
-                    <h3 style="color: var(--gold);">Поглиблений PRO</h3>
-                    <div class="t-price">444€</div>
-                    <ul>
-                        <li><b>Всі матеріали тарифу "Самостійний"</b></li>
-                        <li style="color: var(--gold-light);">Аналіз твоєї власної мапи життя</li>
-                        <li style="color: var(--gold-light);"><b>Перевірка ДЗ і мій особистий фідбек</b></li>
-                        <li style="color: var(--gold-light);"><b>Закритий чат зі мною</b> та розбір твоїх запитів</li>
-                        <li>Журнали інтеграції (шаблони)</li>
-                    </ul>
-                    <a href="#" class="btn" style="text-align: center;">Обрати PRO</a>
-                </div>
+            <!-- Тариф 2 PRO -->
+            <div class="tariff pro">
+                <div class="hit-label">Повне занурення</div>
+                <h3 style="color: var(--gold);">Поглиблений PRO</h3>
+                <div class="t-price">444€</div>
+                <ul>
+                    <li><b>Всі матеріали тарифу "Самостійний"</b></li>
+                    <li style="color: var(--gold-light);">Аналіз твоєї мапи життя</li>
+                    <li style="color: var(--gold-light);"><b>Перевірка ДЗ і особистий фідбек</b></li>
+                    <li style="color: var(--gold-light);"><b>Закритий чат зі мною</b></li>
+                    <li>Журнали інтеграції (шаблони)</li>
+                </ul>
+                <a href="#" class="btn">Обрати PRO</a>
+            </div>
 
-                <!-- Тариф 3 VIP -->
-                <div class="tariff">
-                    <h3 style="color: #bbb;">VIP (Наставництво)</h3>
-                    <div class="t-price"><span class="old-price">1500€</span><br>1200€</div>
-                    <ul>
-                        <li><b>Всі матеріали тарифу "Поглиблений"</b></li>
-                        <li style="color: var(--gold);"><b>Доступ до всіх матеріалів НАЗАВЖДИ</b></li>
-                        <li><b>Індивідуальні сесії 1:1</b> (4 глибинні консультації на період 2 місяців)</li>
-                        <li>Особистий чат: прямий контакт, голосова підтримка (окрім неділі)</li>
-                        <li>Детальна робота над больовими точками</li>
-                        <li>Розбір конкретних подій «по гарячому»</li>
-                        <li>Безкоштовний доступ до платного каналу на 2 місяці</li>
-                    </ul>
-                    <a href="#" class="btn btn-outline" style="text-align: center;">Анкета на VIP</a>
-                </div>
+            <!-- Тариф 3 VIP -->
+            <div class="tariff">
+                <h3 style="color: #bbb;">VIP (Наставництво)</h3>
+                <div class="t-price"><span class="old-price">1500€</span><br>1200€</div>
+                <ul>
+                    <li><b>Всі матеріали PRO</b></li>
+                    <li style="color: var(--gold);"><b>Доступ до курсу НАЗАВЖДИ</b></li>
+                    <li><b>Індивідуальні сесії 1:1</b> (4 консультації)</li>
+                    <li>Особистий чат: голосова підтримка</li>
+                    <li>Детальна робота над больовими точками</li>
+                    <li>Безкоштовний доступ до платного каналу на 2 місяці</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Анкета на VIP</a>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК 8: СПЕЦПРОПОЗИЦІЯ -->
+    <!-- БОНУС -->
     <section>
         <div class="container">
             <div class="special-offer-box">
-                <h2>СПЕЦПРОПОЗИЦІЯ — БОНУС 24 ГОДИНИ ⏳</h2>
-                <p>Фіксуй місце за <b>100€ (Бронь)</b> та отримуй подарунки на 10 000 грн одразу!</p>
+                <h2>СПЕЦПРОПОЗИЦІЯ ⏳</h2>
+                <p>Фіксуй місце за <b>100€ (Бронь)</b> та отримуй подарунки на 10 000 грн!</p>
                 
-                <ul class="special-box-list tools-list">
-                    <li><b>Лекція «Фінансовий канал»</b> — ексклюзивний матеріал з окремого платного курсу.</li>
-                    <li><b>Гайд із чайної церемонії</b> — практика для глибокого релаксу та заспокоєння.</li>
-                    <li><b>Доступ до навчання Х2</b> — вдвічі більше часу на проходження матеріалів.</li>
-                    <li><i>А коли саме долучитися до програми — зможеш вирішити тоді, коли тобі буде найзручніше!</i></li>
+                <ul class="tools-list" style="text-align: left; margin-bottom: 20px;">
+                    <li><b>Лекція «Фінансовий канал»</b></li>
+                    <li><b>Гайд із чайної церемонії</b></li>
+                    <li><b>Доступ до навчання Х2</b></li>
                 </ul>
-                <br>
-                <div style="margin-bottom: 20px; color: var(--gold-light);">Способи оплати: Повна оплата, Бронь 100€, або Оплата частинами (до 6 частин)</div>
-                <a href="#" class="btn" style="padding: 22px 60px; font-size: 1.2rem;">Забронювати місце</a>
+                <p style="font-size: 0.85rem; color: #888; margin-bottom: 20px;">Оплати: Повна, Бронь 100€, Оплата частинами (до 6 платежів)</p>
+                <a href="#" class="btn">Забронювати місце</a>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК 9: ВІДГУКИ -->
+    <!-- ВІДГУКИ -->
     <section>
         <div class="container">
-            <h2 class="section-title">Відгуки учнів</h2>
+            <h2 class="section-title">Відгуки</h2>
             <div class="reviews-container">
                 <div class="review-card">
-                    <h4 style="color: var(--gold); margin-bottom: 10px;">@Yulia</h4>
-                    <p>"Владо, хочу від щирого серця подякувати тобі за цей курс! Відчувається, скільки душі, любові, сил та енергії ти вклала. Окремо хочу подякувати за підтримку, щирість і тепло..."</p>
+                    <h4 style="color: var(--gold); margin-bottom: 5px;">@Yulia</h4>
+                    <p>"Владо, хочу від щирого серця подякувати тобі за цей курс! Відчувається, скільки душі, любові, сил та енергії ти вклала..."</p>
                 </div>
                 <div class="review-card">
-                    <h4 style="color: var(--gold); margin-bottom: 10px;">@Khrystyna</h4>
-                    <p>"Влада, щиро дякую тобі за курс! Ти з'явилася в один із найскладніших періодів мого життя... Я собі навіть близько не уявляла, скільки треба пройти, щоб дійти до такого професійного рівня подачі."</p>
+                    <h4 style="color: var(--gold); margin-bottom: 5px;">@Khrystyna</h4>
+                    <p>"Щиро дякую тобі за курс! Ти з'явилася в один із найскладніших періодів... Я собі навіть близько не уявляла такий професійний рівень."</p>
                 </div>
                 <div class="review-card">
-                    <h4 style="color: var(--gold); margin-bottom: 10px;">@Katja</h4>
-                    <p>"Владу дуже тобі дякую за афігенний курс, він дійсно змінює особистість і підсвідослення... Розуміння що тебе тримало колись і не давало рухатися далі. Дякую тобі за цей курс це просто кайф!"</p>
+                    <h4 style="color: var(--gold); margin-bottom: 5px;">@Katja</h4>
+                    <p>"Владу дуже тобі дякую за афігенний курс, він дійсно змінює особистість і підсвідослення. Дякую тобі, це просто кайф!"</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК 10: FAQ -->
+    <!-- FAQ -->
     <section>
         <div class="container">
-            <h2 class="section-title">Залишилися питання?</h2>
-            <div class="faq-container">
-                
-                <details>
-                    <summary>Який графік навчання?</summary>
-                    <div class="faq-content">
-                        В уроках — 20-30 хвилин. Ви працюєте у власному темпі. Немає жорсткої прив'язки, весь контент доступний вам у записі, щоб ви могли навчатися тоді, коли вам найзручніше.
-                    </div>
-                </details>
+            <h2 class="section-title">Питання?</h2>
+            
+            <details>
+                <summary>Який графік навчання?</summary>
+                <div class="faq-content">
+                    В уроках — 20-30 хвилин. Ви працюєте у власному темпі. Немає жорсткої прив'язки, весь контент доступний у записі.
+                </div>
+            </details>
 
-                <details>
-                    <summary>Чи підходить курс, якщо у мене немає досвіду?</summary>
-                    <div class="faq-content">
-                        Абсолютно. Програма побудована від базових понять до глибоких трансформацій. Це не складна академічна теорія, а практичне керівництво до дій, яке буде зрозуміле кожному.
-                    </div>
-                </details>
+            <details>
+                <summary>Чи підходить курс без досвіду?</summary>
+                <div class="faq-content">
+                    Абсолютно. Програма побудована від базових понять до глибоких трансформацій.
+                </div>
+            </details>
 
-                <details>
-                    <summary>Чи є можливість оплати частинами?</summary>
-                    <div class="faq-content">
-                        Так, ви можете оформити банківську розстрочку до 6 платежів (залежно від тарифу), або внести фіксовану бронь 100 євро зараз, щоб закріпити за собою ціну та бонуси, а залишок сплатити пізніше.
-                    </div>
-                </details>
-
-            </div>
+            <details>
+                <summary>Чи є оплата частинами?</summary>
+                <div class="faq-content">
+                    Так, банківська розстрочка до 6 платежів, або бронь 100 євро зараз, а залишок — пізніше.
+                </div>
+            </details>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>Авторська програма Влади Слави <a href="https://instagram.com/vlada_n_slava" target="_blank">@vlada_n_slava</a></p>
+            <p>Авторська програма Влади Слави <br><a href="https://instagram.com/vlada_n_slava" target="_blank">@vlada_n_slava</a></p>
             <p style="margin-top: 10px;">Алхімія Тіні © 2024. Всі права захищено.</p>
-            <div style="margin-top: 20px;">
-                <a href="#">Договір публічної оферти</a> | <a href="#">Політика конфіденційності</a>
-            </div>
         </div>
     </footer>
 
