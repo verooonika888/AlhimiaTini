@@ -77,7 +77,7 @@
         .btn-transparent {
             display: block;
             width: 100%;
-            background: rgba(255, 255, 255, 0.08); 
+            background: rgba(255, 255, 255, 0.08); /* Напівпрозорий фон */
             color: var(--text-main);
             padding: 20px 0;
             text-align: center;
@@ -88,10 +88,10 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             border-radius: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.2); 
-            backdrop-filter: blur(8px); 
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Напівпрозора рамка */
+            backdrop-filter: blur(8px); /* Ефект матового скла */
             transition: all 0.3s ease;
-            margin-top: 15px; 
+            margin-top: 15px; /* Відступ від верхньої кнопки */
         }
         
         .btn-transparent:hover {
@@ -128,7 +128,8 @@
             justify-content: center;
             text-align: center;
             
-            padding: 140px 0 60px 0; 
+            /* ПОВЕРНУТО ВІДСТУП ЗВЕРХУ, ЩОБ ОПУСТИТИ ТЕКСТ НИЖЧЕ */
+            padding: 240px 0 60px 0; 
             
             background-image: linear-gradient(180deg, rgba(5,5,5,0.2) 0%, rgba(5,5,5,0.9) 100%), url('blok1.jpg');
             background-size: cover;
@@ -196,14 +197,14 @@
 
         /* --- КАРТКИ З ДИМОМ ТА ТІНЯМИ (ДЛЯ КОГО) --- */
         .smoke-card {
-            background: #080303; /* Дуже темний фон з мікроскопічним червоним підтоном */
+            background: #080303; 
             border: 1px solid rgba(139, 0, 0, 0.4);
             padding: 30px 20px;
             border-radius: 6px;
             margin-bottom: 20px;
             position: relative;
             overflow: hidden;
-            box-shadow: inset 0 0 40px rgba(58, 0, 0, 0.5), 0 5px 15px rgba(0,0,0,0.8); /* Внутрішня тінь + зовнішня */
+            box-shadow: inset 0 0 40px rgba(58, 0, 0, 0.5), 0 5px 15px rgba(0,0,0,0.8); 
         }
 
         /* Створення ефекту диму */
@@ -225,7 +226,7 @@
 
         .smoke-card-content {
             position: relative;
-            z-index: 2; /* Щоб текст був над димом */
+            z-index: 2; 
         }
 
         .smoke-card h3 {
@@ -240,7 +241,7 @@
         .smoke-card p {
             color: #d0d0d0;
             font-size: 0.95rem;
-            text-shadow: 0 2px 5px rgba(0,0,0,1); /* Потужна тінь для ідеальної читабельності */
+            text-shadow: 0 2px 5px rgba(0,0,0,1); 
         }
 
         /* --- КАРТКИ GLASSMORPHISM (ДЛЯ ІНШИХ БЛОКІВ) --- */
@@ -426,7 +427,7 @@
         
         <div class="container" style="z-index: 10;">
             <h1>Алхімія Тіні</h1>
-            <h2>Прояв душі в матеріальному світі через інтеграцію Тіні, вихід із внутрішніх конфліктів, зміну сприйняття та кардинально нові прояви у грошах, стосунках та реалізації.</h2>
+            <h2>Прояв душі в матеріальному світі через інтеграцію Тіні, зміну сприйняття та вихід із внутрішніх конфліктів у реалізацію.</h2>
             
             <a href="#tariffs" class="btn">Придбати курс</a>
             <a href="#program" class="btn-transparent">Програма курсу</a>
@@ -440,7 +441,7 @@
     <section id="for-whom">
         <div class="container">
             <h2 class="section-title">ДЛЯ КОГО ЦЕЙ ДОСВІД?</h2>
-            <p class="section-subtitle">Це простір для тих, хто готовий подивитися у власну глибину, забрати звідти свою силу і вийти на кардинально новий рівень.<br><br>Цей курс для тебе, якщо твій запит:</p>
+            <p class="section-subtitle">Цей курс для тебе, якщо твій запит:</p>
             
             <!-- НОВІ КАРТКИ З ДИМОМ -->
             <div class="smoke-card">
