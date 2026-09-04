@@ -77,7 +77,7 @@
         .btn-transparent {
             display: block;
             width: 100%;
-            background: rgba(255, 255, 255, 0.08); /* Напівпрозорий фон */
+            background: rgba(255, 255, 255, 0.08); 
             color: var(--text-main);
             padding: 20px 0;
             text-align: center;
@@ -88,10 +88,10 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             border-radius: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Напівпрозора рамка */
-            backdrop-filter: blur(8px); /* Ефект матового скла */
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            backdrop-filter: blur(8px); 
             transition: all 0.3s ease;
-            margin-top: 15px; /* Відступ від верхньої кнопки */
+            margin-top: 15px; 
         }
         
         .btn-transparent:hover {
@@ -128,7 +128,8 @@
             justify-content: center;
             text-align: center;
             
-            padding: 140px 0 60px 0; 
+            /* ЗБІЛЬШЕНИЙ ВЕРХНІЙ ВІДСТУП (опустив текст нижче, але кнопки залишив у безпечній зоні) */
+            padding: 240px 0 60px 0; 
             
             background-image: linear-gradient(180deg, rgba(5,5,5,0.2) 0%, rgba(5,5,5,0.9) 100%), url('blok1.jpg');
             background-size: cover;
