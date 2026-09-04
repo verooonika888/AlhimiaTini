@@ -96,30 +96,38 @@
             position: relative;
             min-height: 100vh; 
             display: flex;
-            align-items: center; /* Центруємо по вертикалі */
+            align-items: center; 
             justify-content: center;
             text-align: center;
             
-            /* ВІДСТУП ЗВЕРХУ, ЩОБ ОПУСТИТИ ТЕКСТ НИЖЧЕ */
             padding: 140px 0 60px 0; 
             
-            /* ФОНОВА КАРТИНКА + ЗАТЕМНЕННЯ */
             background-image: linear-gradient(180deg, rgba(5,5,5,0.2) 0%, rgba(5,5,5,0.9) 100%), url('blok1.jpg');
             background-size: cover;
             background-position: center top;
         }
 
+        /* Текст вгорі екрану */
         .hero-subtitle {
             color: var(--gold);
             font-size: 12px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 20px;
             font-weight: 500;
+            
+            /* ФІКСАЦІЯ ЗВЕРХУ */
+            position: absolute;
+            top: 50px; /* Відступ від самого верху екрану */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            padding: 0 20px;
+            text-align: center;
+            z-index: 20;
         }
 
         .hero h1 {
-            font-size: 3.2rem; /* Трохи збільшено для краси */
+            font-size: 3.2rem;
             color: var(--gold-light);
             text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(197, 160, 89, 0.3);
             margin-bottom: 20px;
@@ -129,10 +137,10 @@
 
         .hero h2 {
             font-size: 1.1rem;
-            margin: 0 auto 30px; /* Збільшено відступ до кнопки */
+            margin: 0 auto 30px; 
             color: var(--text-main);
             font-weight: 300;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8); /* Тінь для кращої читабельності */
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8); 
         }
 
         /* --- СЕКЦІЇ --- */
@@ -337,8 +345,9 @@
 
     <!-- БЛОК 1: HERO SECTION -->
     <header class="hero">
+        <div class="hero-subtitle">Авторська програма глибокого переходу</div>
+        
         <div class="container" style="z-index: 10;">
-            <div class="hero-subtitle">Авторська програма глибокого переходу</div>
             <h1>Алхімія Тіні</h1>
             <h2>Прояв душі в матеріальному світі через інтеграцію Тіні, зміну сприйняття та реальні дії.</h2>
             
