@@ -272,6 +272,22 @@
             line-height: 1.3;
         }
 
+        /* --- ІНСТРУМЕНТИ --- */
+        .tools-list { list-style: none; }
+        .tools-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        .tools-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0; top: 2px;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
         /* --- ТАЙМЛАЙН ПРОГРАМИ --- */
         .timeline { position: relative; padding-left: 10px; }
         .timeline::before {
@@ -477,9 +493,12 @@
     <!-- ІНСТРУМЕНТИ (КАРТИНКА) -->
     <section>
         <div class="container">
-            <!-- Тут ідеально чітко відобразиться картинка з інформацією -->
-            <img src="blok3.jpg" alt="Інструменти занурення" style="width: 100%; height: auto; display: block; border-radius: 6px; box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
+            <!-- Золотий заголовок блоку -->
+            <h2 class="section-title" style="font-size: 1.8rem;">Практичні інструменти трансформації всередині програми:</h2>
         </div>
+        
+        <!-- Картинка винесена за межі контейнера, щоб бути на 100% ширини без обрізок -->
+        <img src="blok3.jpg" alt="Інструменти занурення" style="width: 100%; height: auto; display: block; margin-top: 30px;">
     </section>
 
     <!-- РЕЗУЛЬТАТИ -->
