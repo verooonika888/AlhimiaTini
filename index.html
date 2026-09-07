@@ -77,7 +77,7 @@
         .btn-transparent {
             display: block;
             width: 100%;
-            background: rgba(255, 255, 255, 0.08); 
+            background: rgba(255, 255, 255, 0.08); /* Напівпрозорий фон */
             color: var(--text-main);
             padding: 20px 0;
             text-align: center;
@@ -88,10 +88,10 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             border-radius: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.2); 
-            backdrop-filter: blur(8px); 
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Напівпрозора рамка */
+            backdrop-filter: blur(8px); /* Ефект матового скла */
             transition: all 0.3s ease;
-            margin-top: 15px; 
+            margin-top: 15px; /* Відступ від верхньої кнопки */
         }
         
         .btn-transparent:hover {
@@ -447,16 +447,36 @@
             background: linear-gradient(180deg, rgba(30,0,0,0.8) 0%, rgba(10,10,10,0.9) 100%);
             box-shadow: 0 0 30px rgba(139, 0, 0, 0.3);
         }
+        /* Спеціальний дизайн для VIP тарифу */
+        .tariff.vip {
+            border: 2px solid var(--gold);
+            background: linear-gradient(180deg, rgba(197, 160, 89, 0.4) 0%, rgba(10, 10, 10, 0.95) 100%);
+            box-shadow: 0 0 35px rgba(197, 160, 89, 0.3);
+        }
+
         .hit-label {
             position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
             background: var(--gold); color: #000;
             padding: 5px 15px; font-weight: bold; font-size: 11px; letter-spacing: 1px;
             text-transform: uppercase; border-radius: 20px; white-space: nowrap;
         }
+        .hit-label-grey {
+            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+            background: #222; color: #aaa;
+            padding: 5px 15px; font-weight: 500; font-size: 11px; letter-spacing: 1px;
+            text-transform: uppercase; border-radius: 20px; white-space: nowrap; border: 1px solid #444;
+        }
         .tariff h3 { font-size: 1.4rem; text-align: center; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase;}
-        .tariff ul { list-style: none; margin-bottom: 30px; }
+        
+        .tariff ul { list-style: none; margin-bottom: 10px; } 
+        
         .tariff ul li { margin-bottom: 15px; font-size: 0.9rem; padding-left: 25px; position: relative; }
         .tariff ul li::before { content: '✓'; color: var(--gold); position: absolute; left: 0; font-weight: bold;}
+        
+        /* НОВІ СТИЛІ ДЛЯ НЕДОСТУПНИХ ПУНКТІВ У ТАРИФАХ (Прибрано закреслення) */
+        .tariff ul li.disabled { color: #555; }
+        .tariff ul li.disabled::before { content: '✕'; color: #555; font-weight: normal; }
+
         .t-price { text-align: center; font-size: 2.2rem; font-family: 'Playfair Display', serif; color: var(--gold-light); margin-bottom: 25px; }
         .old-price { text-decoration: line-through; color: #666; font-size: 1.1rem; }
 
@@ -670,25 +690,45 @@
                 <button class="slider-arrow arrow-left" onclick="scrollReviewSlider(-1)">&#10094;</button>
                 
                 <div class="slider-container" id="review-carousel">
-                    <!-- Картка 1 (вставиш свій відгук замість review1.jpg) -->
+                    <!-- Картка 1 -->
                     <div class="slider-card" onclick="openLightbox('review1.jpg')">
-                        <!-- Якщо скріншот не знайдено, буде сірий квадрат -->
                         <img src="review1.jpg" alt="Відгук 1" onerror="this.style.backgroundColor='#222';">
                     </div>
-                    
                     <!-- Картка 2 -->
                     <div class="slider-card" onclick="openLightbox('review2.jpg')">
                         <img src="review2.jpg" alt="Відгук 2" onerror="this.style.backgroundColor='#222';">
                     </div>
-                    
                     <!-- Картка 3 -->
                     <div class="slider-card" onclick="openLightbox('review3.jpg')">
                         <img src="review3.jpg" alt="Відгук 3" onerror="this.style.backgroundColor='#222';">
                     </div>
-                    
                     <!-- Картка 4 -->
                     <div class="slider-card" onclick="openLightbox('review4.jpg')">
                         <img src="review4.jpg" alt="Відгук 4" onerror="this.style.backgroundColor='#222';">
+                    </div>
+                    <!-- Картка 5 -->
+                    <div class="slider-card" onclick="openLightbox('review5.jpg')">
+                        <img src="review5.jpg" alt="Відгук 5" onerror="this.style.backgroundColor='#222';">
+                    </div>
+                    <!-- Картка 6 -->
+                    <div class="slider-card" onclick="openLightbox('review6.jpg')">
+                        <img src="review6.jpg" alt="Відгук 6" onerror="this.style.backgroundColor='#222';">
+                    </div>
+                    <!-- Картка 7 -->
+                    <div class="slider-card" onclick="openLightbox('review7.jpg')">
+                        <img src="review7.jpg" alt="Відгук 7" onerror="this.style.backgroundColor='#222';">
+                    </div>
+                    <!-- Картка 8 -->
+                    <div class="slider-card" onclick="openLightbox('review8.jpg')">
+                        <img src="review8.jpg" alt="Відгук 8" onerror="this.style.backgroundColor='#222';">
+                    </div>
+                    <!-- Картка 9 -->
+                    <div class="slider-card" onclick="openLightbox('review9.jpg')">
+                        <img src="review9.jpg" alt="Відгук 9" onerror="this.style.backgroundColor='#222';">
+                    </div>
+                    <!-- Картка 10 -->
+                    <div class="slider-card" onclick="openLightbox('review10.jpg')">
+                        <img src="review10.jpg" alt="Відгук 10" onerror="this.style.backgroundColor='#222';">
                     </div>
                 </div>
 
@@ -701,20 +741,25 @@
     <!-- ТАРИФИ -->
     <section id="tariffs">
         <div class="container">
-            <h2 class="section-title">Тарифи Участі</h2>
+            <h2 class="section-title" style="margin-bottom: 40px;">Тарифи Участі</h2>
             
             <!-- Тариф 1 -->
             <div class="tariff">
+                <div class="hit-label-grey">Самостійне проходження</div>
                 <h3>Самостійний</h3>
-                <div class="t-price">199€</div>
                 <ul>
                     <li>Доступ до всіх 10 модулів курсу на 3 місяці</li>
                     <li>Відео, аудіо та конспекти</li>
                     <li>Глибинні медитації та практики</li>
                     <li>Домашні завдання</li>
                     <li>Чат спільноти</li>
-                    <li>Створення мапи життя</li>
+                    <li>Створення мною твоєї індивідуальної мапи життя</li>
+                    <li class="disabled">Аналіз твоєї індивідуальної мапи життя</li>
+                    <li class="disabled">Перевірка ДЗ і мій особистий фідбек по завданням</li>
+                    <li class="disabled">Закритий чат зі мною та розбір твоїх запитів і ситуацій</li>
+                    <li class="disabled">Журнали інтеграції (шаблони)</li>
                 </ul>
+                <div class="t-price"><span class="old-price">359€</span><br>199€</div>
                 <a href="#" class="btn btn-outline">Обрати тариф</a>
             </div>
 
@@ -722,21 +767,21 @@
             <div class="tariff pro">
                 <div class="hit-label">Повне занурення</div>
                 <h3 style="color: var(--gold);">Поглиблений PRO</h3>
-                <div class="t-price">444€</div>
                 <ul>
                     <li><b>Всі матеріали тарифу "Самостійний"</b></li>
-                    <li style="color: var(--gold-light);">Аналіз твоєї мапи життя</li>
-                    <li style="color: var(--gold-light);"><b>Перевірка ДЗ і особистий фідбек</b></li>
-                    <li style="color: var(--gold-light);"><b>Закритий чат зі мною</b></li>
+                    <li>Доступ до курсу 6 місяців</li>
+                    <li style="color: var(--gold-light);">Аналіз твоєї індивідуальної мапи життя</li>
+                    <li style="color: var(--gold-light);"><b>Перевірка ДЗ і мій особистий фідбек по завданням</b></li>
+                    <li style="color: var(--gold-light);"><b>Закритий чат зі мною та розбір твоїх запитів і ситуацій</b></li>
                     <li>Журнали інтеграції (шаблони)</li>
                 </ul>
+                <div class="t-price"><span class="old-price">888€</span><br>444€</div>
                 <a href="#" class="btn">Обрати PRO</a>
             </div>
 
             <!-- Тариф 3 VIP -->
-            <div class="tariff">
-                <h3 style="color: #bbb;">VIP (Наставництво)</h3>
-                <div class="t-price"><span class="old-price">1500€</span><br>1200€</div>
+            <div class="tariff vip">
+                <h3 style="color: var(--gold-light);">VIP (Наставництво)</h3>
                 <ul>
                     <li><b>Всі матеріали PRO</b></li>
                     <li style="color: var(--gold);"><b>Доступ до курсу НАЗАВЖДИ</b></li>
@@ -745,6 +790,7 @@
                     <li>Детальна робота над больовими точками</li>
                     <li>Безкоштовний доступ до платного каналу на 2 місяці</li>
                 </ul>
+                <div class="t-price"><span class="old-price">1500€</span><br>1200€</div>
                 <a href="#" class="btn btn-outline">Анкета на VIP</a>
             </div>
         </div>
@@ -835,14 +881,12 @@
 
 <!-- СКРИПТ ДЛЯ СЛАЙДЕРУ ТА МОДАЛЬНОГО ВІКНА -->
 <script>
-    // Функція прокрутки слайдеру стрілочками
     function scrollReviewSlider(direction) {
         const container = document.getElementById('review-carousel');
-        const scrollAmount = container.clientWidth * 0.75; // Прокручуємо на ширину однієї картки
+        const scrollAmount = container.clientWidth * 0.75;
         container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
     }
 
-    // Функція відкриття картинки на весь екран
     function openLightbox(imgSrc) {
         const overlay = document.getElementById('lightbox');
         const img = document.getElementById('lightbox-img');
@@ -850,7 +894,6 @@
         overlay.classList.add('active');
     }
 
-    // Функція закриття модального вікна (при кліку на хрестик або темний фон)
     function closeLightbox(event) {
         if (event.target.id === 'lightbox' || event.target.className === 'lightbox-close') {
             document.getElementById('lightbox').classList.remove('active');
