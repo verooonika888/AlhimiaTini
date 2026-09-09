@@ -326,6 +326,76 @@
         .module span { color: var(--gold-dark); font-size: 0.85rem; letter-spacing: 1px;}
         .module p { font-size: 0.95rem; }
 
+        /* --- НОВИЙ БЛОК: ЯК ПРОХОДИТИМЕ НАВЧАННЯ (СПИСКИ З ЦИФРАМИ) --- */
+        .learning-step {
+            position: relative;
+            margin-bottom: 45px;
+            padding-left: 25px; 
+        }
+        .learning-step::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            height: 100%;
+            width: 2px;
+            background: var(--accent-red);
+            box-shadow: 0 0 10px var(--accent-red);
+        }
+        .learning-step::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--gold);
+        }
+        .learning-number {
+            position: absolute;
+            left: 20px;
+            top: -25px;
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: var(--gold);
+            opacity: 0.15;
+            z-index: 0;
+            line-height: 1;
+            font-weight: bold;
+            user-select: none;
+        }
+        .learning-content {
+            position: relative;
+            z-index: 1;
+        }
+        .learning-content h3 {
+            color: var(--gold-light);
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+        }
+        .learning-content p {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .learning-content .highlight-badge {
+            display: inline-block;
+            background: rgba(139, 0, 0, 0.2);
+            border: 1px solid var(--accent-red);
+            color: var(--gold-light);
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         /* --- ЕКСПЕРТИ --- */
         .expert-card { text-align: center; margin-bottom: 40px; }
         .expert-photo {
@@ -351,15 +421,15 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             gap: 15px;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none; 
             scroll-behavior: smooth;
             padding: 10px;
             flex-grow: 1;
         }
-        .slider-container::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+        .slider-container::-webkit-scrollbar { display: none; } 
         
         .slider-card {
-            flex: 0 0 75%; /* На мобільному буде видно 1 повну картку і шматочок наступної */
+            flex: 0 0 75%; 
             scroll-snap-align: center;
             border-radius: 8px;
             overflow: hidden;
@@ -368,7 +438,7 @@
             cursor: pointer;
             background: #111;
             transition: transform 0.3s;
-            height: 350px; /* Висота для скріншотів */
+            height: 350px; 
         }
         .slider-card:hover {
             border-color: var(--gold);
@@ -377,7 +447,7 @@
         .slider-card img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Або contain, якщо не хочеш, щоб картинка обрізалась */
+            object-fit: cover; 
             display: block;
         }
         
@@ -447,7 +517,6 @@
             background: linear-gradient(180deg, rgba(30,0,0,0.8) 0%, rgba(10,10,10,0.9) 100%);
             box-shadow: 0 0 30px rgba(139, 0, 0, 0.3);
         }
-        /* Спеціальний дизайн для VIP тарифу */
         .tariff.vip {
             border: 2px solid var(--gold);
             background: linear-gradient(180deg, rgba(197, 160, 89, 0.4) 0%, rgba(10, 10, 10, 0.95) 100%);
@@ -473,7 +542,6 @@
         .tariff ul li { margin-bottom: 15px; font-size: 0.9rem; padding-left: 25px; position: relative; }
         .tariff ul li::before { content: '✓'; color: var(--gold); position: absolute; left: 0; font-weight: bold;}
         
-        /* НОВІ СТИЛІ ДЛЯ НЕДОСТУПНИХ ПУНКТІВ У ТАРИФАХ (Прибрано закреслення) */
         .tariff ul li.disabled { color: #555; }
         .tariff ul li.disabled::before { content: '✕'; color: #555; font-weight: normal; }
 
@@ -490,26 +558,6 @@
         }
         .special-offer-box h2 { font-size: 1.8rem; color: var(--gold-light); margin-bottom: 15px; }
         .special-offer-box p { font-size: 1rem; margin-bottom: 25px; }
-
-        /* --- ВІДГУКИ СТАРІ --- */
-        .reviews-container-old {
-            display: flex;
-            gap: 15px;
-            overflow-x: auto;
-            padding-bottom: 20px;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none; 
-        }
-        .reviews-container-old::-webkit-scrollbar { display: none; }
-        
-        .review-card-old {
-            min-width: 280px;
-            background: #111;
-            padding: 25px;
-            border: 1px solid var(--glass-border);
-            border-radius: 4px;
-            scroll-snap-align: center;
-        }
 
         /* --- FAQ --- */
         details {
@@ -648,6 +696,51 @@
         <img src="block5.jpg" alt="План занурення" style="width: 100%; height: auto; display: block; margin-top: 30px;">
     </section>
 
+    <!-- ЯК ПРОХОДИТИМЕ НАВЧАННЯ (НОВИЙ ДИЗАЙН) -->
+    <section id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Як проходитиме навчання</h2>
+            <p class="section-subtitle" style="margin-bottom: 40px;">Це не черговий курс заради красивого сертифіката, який припадатиме пилом на полиці. Це глибока трансформаційна програма, яка змінює твої базові внутрішні налаштування.</p>
+            
+            <div class="learning-step">
+                <div class="learning-number">01</div>
+                <div class="learning-content">
+                    <h3>Комфортний ритм</h3>
+                    <p>Раз на тиждень відкривається новий модуль. На тебе чекають ефіри (тривалістю від 1 до 2 годин) та потужні трансформаційні медитації та практичні домашні завдання.</p>
+                </div>
+            </div>
+
+            <div class="learning-step">
+                <div class="learning-number">02</div>
+                <div class="learning-content">
+                    <h3>Школа реального життя</h3>
+                    <div class="highlight-badge">Ніякої сухої теорії</div>
+                    <p>Тобі не доведеться виконувати домашку для «галочки». Усі завдання інтегруються безпосередньо в твою реальність. Сталася криза на роботі чи конфлікт із партнером? Ти одразу береш інструмент із курсу і вирішуєш проблему в моменті.</p>
+                </div>
+            </div>
+
+            <div class="learning-step">
+                <div class="learning-number">03</div>
+                <div class="learning-content">
+                    <h3>Універсальні інструменти</h3>
+                    <p>Переходи на нові рівні та кризи — це не одноразова акція, це частина росту. Ти отримаєш навички, які залишаться з тобою на все життя, щоб ти могла самостійно переписувати сценарії та витримувати будь-які життєві шторми.</p>
+                </div>
+            </div>
+
+            <div class="learning-step">
+                <div class="learning-number">04</div>
+                <div class="learning-content">
+                    <h3>Підтримка та ком'юніті</h3>
+                    <p>Ти не залишишся сам на сам із процесами. У нас буде загальний закритий чат для взаємодії з іншими учасниками. Потужне оточення своїх для підтримки, обміну досвідом та моїх періодичних відповідей — навіть після завершення навчання.</p>
+                </div>
+            </div>
+
+            <div style="background: rgba(197, 160, 89, 0.05); border-left: 3px solid var(--gold); padding: 20px; font-style: italic; font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold-light); box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-top: 40px;">
+                💡 Навички, які ти тут здобудеш — це твоя фундаментальна опора на роки вперед.
+            </div>
+        </div>
+    </section>
+
     <!-- ЕКСПЕРТИ (ТВІЙ ПРОВІДНИК) -->
     <section>
         <div class="container">
@@ -658,7 +751,7 @@
                 <div class="expert-photo" style="width: 120px; height: 160px; border-radius: 60px 60px 0 0; background-image: url('vladanslava.jpg'); background-size: cover; background-position: center top; margin-bottom: 15px;"></div>
                 
                 <h3 style="font-size: 1.8rem; color: var(--gold-light); margin-bottom: 5px; text-transform: uppercase;">ВЛАДИСЛАВА</h3>
-                <p style="color: var(--gold); font-size: 0.95rem; margin-bottom: 30px; font-weight: 500; padding: 0;">Провідник до твоєї цілісності · Кармолог · Майстер глибинних розборів та ченелінгу</p>
+                <p style="color: var(--gold); font-size: 0.95rem; margin-bottom: 30px; font-weight: 500; padding: 0;">Провідник до твоєї цілісності · Кармолог · Алхімік · Духовний тіньовий коуч</p>
                 
                 <div style="text-align: left; font-size: 0.95rem; color: #e0e0e0; line-height: 1.6;">
                     
@@ -670,10 +763,10 @@
                     </ul>
 
                     <div style="background: rgba(197, 160, 89, 0.05); border-left: 3px solid var(--gold); padding: 20px; font-style: italic; font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold-light); box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-bottom: 25px;">
-                        Я даю клієнтам головне — стан, у якому неможливо не рости. Це вібрації тотальної впевненості, свободи та чесності із собою і відсікання всього непотрібного, що керує твоїм життям.
+                        Я даю клієнтам головне — стан, у якому неможливо не рости. Це вібрації тотальної впевненості, свободи та чесності із собою і відсікання всього непотрібного, що несвідомо керує твоїм життям.
                     </div>
                     
-                    <p style="color: var(--gold); font-size: 0.95rem; font-weight: 500; padding: 0; margin-bottom: 0;">Після взаємодії зі мною ти просто перестаєш погоджуватися на менше. Ті зміни, які відбуваються з моїми клієнтами — це не абстрактна езотерика, це завжди тверді результати: збільшення доходу, розблокована сексуальність, створення взаємних здорових стосунків і вихід у свій істинний масштаб.</p>
+                    <p style="color: var(--gold); font-size: 0.95rem; font-weight: 500; padding: 0; margin-bottom: 0;">Ті зміни, які відбуваються з моїми клієнтами — це не абстрактна езотерика, це завжди тверді результати: збільшення доходу, розблокована сексуальність, створення взаємних здорових стосунків і вихід у свій істинний масштаб.</p>
                 </div>
             </div>
         </div>
@@ -686,53 +779,41 @@
             <p class="section-subtitle">Реальні відгуки людей, які вже пройшли курс</p>
             
             <div class="slider-wrapper">
-                <!-- Стрілка вліво -->
                 <button class="slider-arrow arrow-left" onclick="scrollReviewSlider(-1)">&#10094;</button>
                 
                 <div class="slider-container" id="review-carousel">
-                    <!-- Картка 1 -->
                     <div class="slider-card" onclick="openLightbox('review1.jpg')">
                         <img src="review1.jpg" alt="Відгук 1" onerror="this.style.backgroundColor='#222';">
                     </div>
-                    <!-- Картка 2 -->
                     <div class="slider-card" onclick="openLightbox('review2.jpg')">
                         <img src="review2.jpg" alt="Відгук 2" onerror="this.style.backgroundColor='#222';">
                     </div>
-                    <!-- Картка 3 -->
                     <div class="slider-card" onclick="openLightbox('review3.jpg')">
                         <img src="review3.jpg" alt="Відгук 3" onerror="this.style.backgroundColor='#222';">
                     </div>
-                    <!-- Картка 4 -->
                     <div class="slider-card" onclick="openLightbox('review4.jpg')">
                         <img src="review4.jpg" alt="Відгук 4" onerror="this.style.backgroundColor='#222';">
                     </div>
-                    <!-- Картка 5 -->
                     <div class="slider-card" onclick="openLightbox('review5.jpg')">
                         <img src="review5.jpg" alt="Відгук 5" onerror="this.style.backgroundColor='#222';">
                     </div>
-                    <!-- Картка 6 -->
                     <div class="slider-card" onclick="openLightbox('review6.jpg')">
                         <img src="review6.jpg" alt="Відгук 6" onerror="this.style.backgroundColor='#222';">
                     </div>
-                    <!-- Картка 7 -->
                     <div class="slider-card" onclick="openLightbox('review7.jpg')">
                         <img src="review7.jpg" alt="Відгук 7" onerror="this.style.backgroundColor='#222';">
                     </div>
-                    <!-- Картка 8 -->
                     <div class="slider-card" onclick="openLightbox('review8.jpg')">
                         <img src="review8.jpg" alt="Відгук 8" onerror="this.style.backgroundColor='#222';">
                     </div>
-                    <!-- Картка 9 -->
                     <div class="slider-card" onclick="openLightbox('review9.jpg')">
                         <img src="review9.jpg" alt="Відгук 9" onerror="this.style.backgroundColor='#222';">
                     </div>
-                    <!-- Картка 10 -->
                     <div class="slider-card" onclick="openLightbox('review10.jpg')">
                         <img src="review10.jpg" alt="Відгук 10" onerror="this.style.backgroundColor='#222';">
                     </div>
                 </div>
 
-                <!-- Стрілка вправо -->
                 <button class="slider-arrow arrow-right" onclick="scrollReviewSlider(1)">&#10095;</button>
             </div>
         </div>
@@ -768,12 +849,16 @@
                 <div class="hit-label">Повне занурення</div>
                 <h3 style="color: var(--gold);">Поглиблений PRO</h3>
                 <ul>
-                    <li><b>Всі матеріали тарифу "Самостійний"</b></li>
-                    <li>Доступ до курсу 6 місяців</li>
+                    <li>Доступ до всіх 10 модулів курсу на 4 місяці</li>
+                    <li>Відео, аудіо та конспекти</li>
+                    <li>Глибинні медитації та практики</li>
+                    <li>Домашні завдання</li>
+                    <li>Чат спільноти</li>
+                    <li>Створення мною твоєї індивідуальної мапи життя</li>
                     <li style="color: var(--gold-light);">Аналіз твоєї індивідуальної мапи життя</li>
                     <li style="color: var(--gold-light);"><b>Перевірка ДЗ і мій особистий фідбек по завданням</b></li>
                     <li style="color: var(--gold-light);"><b>Закритий чат зі мною та розбір твоїх запитів і ситуацій</b></li>
-                    <li>Журнали інтеграції (шаблони)</li>
+                    <li style="color: var(--gold-light);">Журнали інтеграції (шаблони)</li>
                 </ul>
                 <div class="t-price"><span class="old-price">888€</span><br>444€</div>
                 <a href="#" class="btn">Обрати PRO</a>
@@ -810,27 +895,6 @@
                 </ul>
                 <p style="font-size: 0.85rem; color: #888; margin-bottom: 20px;">Оплати: Повна, Бронь 100€, Оплата частинами (до 6 платежів)</p>
                 <a href="#" class="btn">Забронювати місце</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- СТАРІ ВІДГУКИ ТЕКСТОМ (Залишив, як ти просила нічого не видаляти) -->
-    <section>
-        <div class="container">
-            <h2 class="section-title">Відгуки</h2>
-            <div class="reviews-container-old">
-                <div class="review-card-old">
-                    <h4 style="color: var(--gold); margin-bottom: 5px;">@Yulia</h4>
-                    <p>"Владо, хочу від щирого серця подякувати тобі за цей курс! Відчувається, скільки душі, любові, сил та енергії ти вклала..."</p>
-                </div>
-                <div class="review-card-old">
-                    <h4 style="color: var(--gold); margin-bottom: 5px;">@Khrystyna</h4>
-                    <p>"Щиро дякую тобі за курс! Ти з'явилася в один із найскладніших періодів... Я собі навіть близько не уявляла такий професійний рівень."</p>
-                </div>
-                <div class="review-card-old">
-                    <h4 style="color: var(--gold); margin-bottom: 5px;">@Katja</h4>
-                    <p>"Владу дуже тобі дякую за афігенний курс, він дійсно змінює особистість і підсвідослення. Дякую тобі, це просто кайф!"</p>
-                </div>
             </div>
         </div>
     </section>
