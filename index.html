@@ -12,8 +12,8 @@ html, body {background-color: #000; width: 100%; overflow-x: hidden; scroll-beha
 .app-wrapper {max-width: 430px; margin: 0 auto; background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.6; position: relative; min-height: 100vh; overflow-x: hidden; box-shadow: 0 0 30px rgba(0,0,0,0.8);}
 h1, h2, h3, h4, .serif {font-family: 'Playfair Display', serif; font-weight: normal;}
 .container {width: 100%; padding: 0 20px;}
-.btn {display: block; width: 100%; background: linear-gradient(135deg, var(--accent-red) 0%, var(--bright-red) 100%); color: white; padding: 20px 0; text-align: center; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 4px; border: 1px solid var(--gold); box-shadow: 0 0 20px rgba(139, 0, 0, 0.6); transition: all 0.3s ease;}
-.btn-transparent {display: block; width: 100%; background: rgba(255, 255, 255, 0.08); color: var(--text-main); padding: 20px 0; text-align: center; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); transition: all 0.3s ease; margin-top: 15px;}
+.btn {display: block; width: 100%; background: linear-gradient(135deg, var(--accent-red) 0%, var(--bright-red) 100%); color: white; padding: 20px 0; text-align: center; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 4px; border: 1px solid var(--gold); box-shadow: 0 0 20px rgba(139, 0, 0, 0.6); transition: all .3s ease;}
+.btn-transparent {display: block; width: 100%; background: rgba(255, 255, 255, 0.08); color: var(--text-main); padding: 20px 0; text-align: center; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); transition: all .3s ease; margin-top: 15px;}
 .btn-transparent:hover {background: rgba(255, 255, 255, 0.15); border-color: var(--gold); color: var(--gold-light);}
 .btn-outline {background: transparent; border: 1px solid var(--gold); box-shadow: none; color: var(--gold-light);}
 .glow-bg {position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, var(--dark-red) 0%, transparent 70%); z-index: -1; opacity: 0.5; border-radius: 50%; filter: blur(40px); pointer-events: none;}
@@ -37,6 +37,14 @@ section:nth-child(even) {background-color: var(--bg-secondary);}
 .tools-list {list-style: none;}
 .tools-list li {position: relative; padding-left: 35px; margin-bottom: 20px; font-size: 1rem;}
 .tools-list li::before {content: "✦"; position: absolute; left: 0; top: 2px; color: var(--gold); font-size: 1.2rem;}
+.timeline {position: relative; padding-left: 10px;}
+.timeline::before {content: ''; position: absolute; top: 0; bottom: 0; left: 16px; width: 1px; background: linear-gradient(to bottom, var(--gold) 0%, transparent 100%);}
+.phase-title {color: var(--accent-red); font-size: 1.6rem; margin: 40px 0 20px 0; text-align: center; position: relative; z-index: 2; background: var(--bg-main); padding: 10px 0;}
+.module {position: relative; margin-bottom: 35px; padding-left: 45px;}
+.module::before {content: ''; position: absolute; left: 2px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg-main); border: 2px solid var(--gold); box-shadow: 0 0 8px var(--gold);}
+.module h4 {color: var(--gold-light); font-size: 1.2rem; margin-bottom: 8px;}
+.module span {color: var(--gold-dark); font-size: 0.85rem; letter-spacing: 1px;}
+.module p {font-size: 0.95rem;}
 .learning-step {position: relative; margin-bottom: 45px; padding-left: 25px;}
 .learning-step::before {content: ''; position: absolute; left: 0; top: 6px; height: 100%; width: 2px; background: var(--accent-red); box-shadow: 0 0 10px var(--accent-red);}
 .learning-step::after {content: ''; position: absolute; left: -4px; top: 6px; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 10px var(--gold);}
@@ -76,6 +84,7 @@ section:nth-child(even) {background-color: var(--bg-secondary);}
 .old-price {text-decoration: line-through; color: #666; font-size: 1.1rem;}
 .special-offer-box {background: linear-gradient(135deg, #2a0000 0%, #050505 100%); border: 1px solid var(--gold); padding: 40px 20px; text-align: center; border-radius: 4px;}
 .special-offer-box h2 {font-size: 1.8rem; color: var(--gold-light); margin-bottom: 15px; line-height: 1.3;}
+.special-offer-box p {font-size: 1rem; margin-bottom: 25px;}
 details {background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); margin-bottom: 10px; border-radius: 4px;}
 details[open] {border-color: var(--gold);}
 summary {padding: 20px; font-weight: 500; color: var(--gold-light); font-size: 1rem; list-style: none; position: relative; padding-right: 40px;}
@@ -211,63 +220,53 @@ footer a {color: var(--gold-dark); text-decoration: none;}
                 <div class="learning-number">01</div>
                 <div class="learning-content">
                     <h3 style="display: flex; align-items: center;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px; color: var(--gold); flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        Комфортний ритм
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px; color: var(--gold); flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Комфортний ритм
                     </h3>
                     <p>Раз на тиждень відкривається новий модуль. На тебе чекають ефіри (тривалістю від 1 до 2 годин) та потужні трансформаційні медитації та практичні домашні завдання.</p>
                 </div>
             </div>
-
             <div class="learning-step">
                 <div class="learning-number">02</div>
                 <div class="learning-content">
                     <h3 style="display: flex; align-items: center;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px; color: var(--gold); flex-shrink: 0;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                        Школа реального життя
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px; color: var(--gold); flex-shrink: 0;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> Школа реального життя
                     </h3>
                     <div class="highlight-badge">Ніякої сухої теорії</div>
                     <p>Тобі не доведеться виконувати домашку для «галочки». Усі завдання інтегруються безпосередньо в твою реальність. Сталася криза на роботі чи конфлікт із партнером? Ти одразу береш інструмент із курсу і вирішуєш проблему в моменті.</p>
                 </div>
             </div>
-
             <div class="learning-step">
                 <div class="learning-number">03</div>
                 <div class="learning-content">
                     <h3 style="display: flex; align-items: center;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px; color: var(--gold); flex-shrink: 0;"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
-                        Універсальні інструменти
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px; color: var(--gold); flex-shrink: 0;"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg> Універсальні інструменти
                     </h3>
                     <p>Переходи на нові рівні та кризи — це не одноразова акція, це частина росту. Ти отримаєш навички, які залишаться з тобою на все життя, щоб ти могла самостійно переписувати сценарії та витримувати будь-які життєві шторми.</p>
                 </div>
             </div>
-
             <div class="learning-step">
                 <div class="learning-number">04</div>
                 <div class="learning-content">
                     <h3 style="display: flex; align-items: center;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px; color: var(--gold); flex-shrink: 0;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        Підтримка та ком'юніті
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px; color: var(--gold); flex-shrink: 0;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Підтримка та ком'юніті
                     </h3>
                     <p>Ти не залишишся сам на сам із процесами. У нас буде загальний закритий чат для взаємодії з іншими учасниками. Потужне оточення своїх для підтримки, обміну досвідом та моїх періодичних відповідей — навіть після завершення навчання.</p>
                 </div>
             </div>
-
             <div style="background: rgba(197, 160, 89, 0.05); border-left: 3px solid var(--gold); padding: 20px; font-style: italic; font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold-light); box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-top: 40px;">
                 💡 Навички, які ти тут здобудеш — це твоя фундаментальна опора на роки вперед.
             </div>
         </div>
     </section>
 
-    <!-- ЕКСПЕРТИ (ТВІЙ ПРОВІДНИК) -->
+    <!-- ЕКСПЕРТИ -->
     <section>
         <div class="container">
             <h2 class="section-title">Твій провідник</h2>
-            
             <div class="expert-card" style="max-width: 100%; margin-bottom: 0;">
                 <div class="expert-photo"></div>
                 <h3 style="font-size: 1.8rem; color: var(--gold-light); margin-bottom: 5px; text-transform: uppercase;">ВЛАДИСЛАВА</h3>
                 <p style="color: var(--gold); font-size: 0.95rem; margin-bottom: 30px; font-weight: 500; padding: 0;">Провідник до твоєї цілісності · Кармолог · Алхімік · Духовний тіньовий коуч</p>
-                
                 <div style="text-align: left; font-size: 0.95rem; color: #e0e0e0; line-height: 1.6;">
                     <ul style="list-style: none; margin-bottom: 30px; padding: 0;">
                         <li style="margin-bottom: 12px; position: relative; padding-left: 30px;"><span style="position: absolute; left: 0; color: var(--gold);">✔️</span> Автор трансформаційної програми «Алхімія тіні»</li>
@@ -275,11 +274,9 @@ footer a {color: var(--gold-dark); text-decoration: none;}
                         <li style="margin-bottom: 12px; position: relative; padding-left: 30px;"><span style="position: absolute; left: 0; color: var(--gold);">✔️</span> Авторська методика: поєднання кармічного аналізу, роботи з тіньовими архетипами та матеріалізації результатів</li>
                         <li style="margin-bottom: 12px; position: relative; padding-left: 30px;"><span style="position: absolute; left: 0; color: var(--gold);">✔️</span> Спеціалізація: фінансовий масштаб, вихід з кармічних сценаріїв, автономність, побудова зрілих стосунків</li>
                     </ul>
-
                     <div style="background: rgba(197, 160, 89, 0.05); border-left: 3px solid var(--gold); padding: 20px; font-style: italic; font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold-light); box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-bottom: 25px;">
                         Я даю клієнтам головне — стан, у якому неможливо не рости. Це вібрації тотальної впевненості, свободи та чесності із собою і відсікання всього непотрібного, що несвідомо керує твоїм життям.
                     </div>
-                    
                     <p style="color: var(--gold); font-size: 0.95rem; font-weight: 500; padding: 0; margin-bottom: 0;">Ті зміни, які відбуваються з моїми клієнтами — це не абстрактна езотерика, це завжди тверді результати: збільшення доходу, розблокована сексуальність, створення взаємних здорових стосунків і вихід у свій істинний масштаб.</p>
                 </div>
             </div>
@@ -291,10 +288,8 @@ footer a {color: var(--gold-dark); text-decoration: none;}
         <div class="container">
             <h2 class="section-title">Що кажуть учасниці</h2>
             <p class="section-subtitle">Реальні відгуки людей, які вже пройшли курс</p>
-            
             <div class="slider-wrapper">
                 <button class="slider-arrow arrow-left" onclick="scrollReviewSlider(-1)">&#10094;</button>
-                
                 <div class="slider-container" id="review-carousel">
                     <div class="slider-card" onclick="openLightbox('review1.jpg')"><img src="review1.jpg" alt="Відгук 1" onerror="this.style.backgroundColor='#222';"></div>
                     <div class="slider-card" onclick="openLightbox('review2.jpg')"><img src="review2.jpg" alt="Відгук 2" onerror="this.style.backgroundColor='#222';"></div>
@@ -307,7 +302,6 @@ footer a {color: var(--gold-dark); text-decoration: none;}
                     <div class="slider-card" onclick="openLightbox('review9.jpg')"><img src="review9.jpg" alt="Відгук 9" onerror="this.style.backgroundColor='#222';"></div>
                     <div class="slider-card" onclick="openLightbox('review10.jpg')"><img src="review10.jpg" alt="Відгук 10" onerror="this.style.backgroundColor='#222';"></div>
                 </div>
-
                 <button class="slider-arrow arrow-right" onclick="scrollReviewSlider(1)">&#10095;</button>
             </div>
         </div>
@@ -317,7 +311,6 @@ footer a {color: var(--gold-dark); text-decoration: none;}
     <section id="tariffs">
         <div class="container">
             <h2 class="section-title" style="margin-bottom: 40px;">Тарифи Участі</h2>
-            
             <div class="tariff">
                 <div class="hit-label-grey">Самостійне проходження</div>
                 <h3>Самостійний</h3>
@@ -336,7 +329,6 @@ footer a {color: var(--gold-dark); text-decoration: none;}
                 <div class="t-price"><span class="old-price">359€</span><br>199€</div>
                 <a href="#" class="btn btn-outline">Обрати тариф</a>
             </div>
-
             <div class="tariff pro">
                 <div class="hit-label">Повне занурення</div>
                 <h3 style="color: var(--gold);">Поглиблений PRO</h3>
@@ -355,7 +347,6 @@ footer a {color: var(--gold-dark); text-decoration: none;}
                 <div class="t-price"><span class="old-price">888€</span><br>444€</div>
                 <a href="#" class="btn">Обрати PRO</a>
             </div>
-
             <div class="tariff vip">
                 <h3 style="color: var(--gold-light);">VIP (Наставництво)</h3>
                 <ul>
@@ -372,7 +363,7 @@ footer a {color: var(--gold-dark); text-decoration: none;}
         </div>
     </section>
 
-    <!-- БОНУС -->
+    <!-- СПЕЦПРОПОЗИЦІЯ -->
     <section>
         <div class="container">
             <div class="special-offer-box">
@@ -393,31 +384,27 @@ footer a {color: var(--gold-dark); text-decoration: none;}
     <!-- FAQ -->
     <section>
         <div class="container">
-            <h2 class="section-title">Питання?</h2>
-            <details>
-                <summary>Який графік навчання?</summary>
-                <div class="faq-content">В уроках — 20-30 хвилин. Ви працюєте у власному темпі. Немає жорсткої прив'язки, весь контент доступний у записі.</div>
-            </details>
-            <details>
-                <summary>Чи підходить курс без досвіду?</summary>
-                <div class="faq-content">Абсолютно. Програма побудована від базових понять до глибоких трансформацій.</div>
-            </details>
-            <details>
-                <summary>Чи є оплата частинами?</summary>
-                <div class="faq-content">Так, банківська розстрочка до 6 платежів, або бронь 100 євро зараз, а залишок — пізніше.</div>
-            </details>
+            <h2 class="section-title">Часті запитання</h2>
+            <details><summary>Чи є оплата частинами?</summary><div class="faq-content">Так, банківська безвідсоткова розстрочка до 6 платежів, або скористатися спеціальною пропозицією: внести бронь 100€ зараз, зафіксувавши поточну знижку на сайті, а залишок сплатити зручним способом протягом двох тижнів.</div></details>
+            <details><summary>Скільки триває програма?</summary><div class="faq-content">Програма розрахована на 2 місяці глибокої роботи. Новий модуль відкривається раз на тиждень (ефір на 1–2 години + медитації і практики ).</div></details>
+            <details><summary>Чи можна почати з самостійного тарифу, а згодом доплатити і перейти на «Поглиблений з підтримкою і фідбеком»?</summary><div class="faq-content">Так, ти можеш зробити апгрейд, але не пізніше, ніж через місяць після оплати.</div></details>
+            <details><summary>Що, якщо я випаду з графіка через справи?</summary><div class="faq-content">Нічого страшного. Усі записи уроків та медитацій і практик зберігаються в зручному особистому кабінеті й доступні для перегляду у твій вільний час. Ти рухаєшся у своєму індивідуальному комфортному темпі.</div></details>
+            <details><summary>Чи підійде мені програма, якщо в мене немає езотеричної підготовки чи досвіду в тіньових практиках?</summary><div class="faq-content">Абсолютно. Тобі не потрібні специфічні знання. Методологія побудована покроково - від чітких базових понять до глибоких шарів підсвідомості. Це практична система навичків, які залишаться з тобою на все життя, щоб ти могла самостійно переписувати сценарії та витримувати будь-які життєві шторми.</div></details>
+            <details><summary>Чи буде підтримка, якщо під час практик піднімуться важкі емоції або тригери?</summary><div class="faq-content">Ти не проходиш цей шлях наодинці. Усі учасниці отримують безлімітний доступ до закритого ком'юніті, де панує безпечне середовище. Крім того, я регулярно заходжу в чат, щоб особисто відповідати на запитання, розбирати незрозумілі моменти та спрямовувати тебе в процесі трансформації.</div></details>
+            <details><summary>Я вже маю непоганий дохід та кар'єру, але хочу ще рости. Чи підійде мені ця програма?</summary><div class="faq-content">Так, якщо ти відчуваєш «скляну стелю» або твій успіх тримається на вигоранні, надзусиллях і тотальному контролі. Ми підемо в ті тіньові аспекти, які блокують твій перехід у наступний масштаб. Ти навчишся генерувати великі гроші та результати з позиції розслабленої сили, а не постійної боротьби та чоловічих енергій.</div></details>
+            <details><summary>Робота з Тінню звучить трохи лякаюче. Що, якщо я не впораюся з тим?</summary><div class="faq-content">Йти в Тінь страшно тільки тоді, коли ти йдеш туди сама і наосліп. У цій програмі я даю тобі чітку, безпечну систему. Ми не будемо «колупатися в травмах» заради самого болю чи страждань. Ми йдемо туди як алхіміки - виключно для того, щоб забрати звідти твій заблокований ресурс, сексуальність та грошову енергію.</div></details>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>Авторська програма Влади Слави <br><a href="https://instagram.com/vlada_n_slava" target="_blank">@vlada_n_slava</a></p>
-            <p style="margin-top: 10px;">Алхімія Тіні © 2024. Всі права захищено.</p>
+            <p>Авторська програма Владислави <br><a href="https://instagram.com/vlada_n_slava" target="_blank">@vlada_n_slava</a></p>
+            <p style="margin-top: 10px;">Алхімія Тіні © 2026. Всі права захищено.</p>
         </div>
     </footer>
 
-</div> <!-- КІНЕЦЬ APP-WRAPPER -->
+</div>
 
 <!-- МОДАЛЬНЕ ВІКНО -->
 <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
@@ -426,22 +413,9 @@ footer a {color: var(--gold-dark); text-decoration: none;}
 </div>
 
 <script>
-    function scrollReviewSlider(direction) {
-        const container = document.getElementById('review-carousel');
-        const scrollAmount = container.clientWidth * 0.75;
-        container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-    }
-    function openLightbox(imgSrc) {
-        const overlay = document.getElementById('lightbox');
-        const img = document.getElementById('lightbox-img');
-        img.src = imgSrc;
-        overlay.classList.add('active');
-    }
-    function closeLightbox(event) {
-        if (event.target.id === 'lightbox' || event.target.className === 'lightbox-close') {
-            document.getElementById('lightbox').classList.remove('active');
-        }
-    }
+    function scrollReviewSlider(direction) {const container = document.getElementById('review-carousel'); const scrollAmount = container.clientWidth * 0.75; container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });}
+    function openLightbox(imgSrc) {const overlay = document.getElementById('lightbox'); const img = document.getElementById('lightbox-img'); img.src = imgSrc; overlay.classList.add('active');}
+    function closeLightbox(event) {if (event.target.id === 'lightbox' || event.target.className === 'lightbox-close') {document.getElementById('lightbox').classList.remove('active');}}
 </script>
 
 </body>
