@@ -6,11 +6,101 @@
 <title>Алхімія Тіні | Авторська програма</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--bg-main:#050505;--bg-secondary:#0d0606;--dark-red:#3a0000;--accent-red:#8b0000;--bright-red:#cc0000;--gold:#C5A059;--gold-light:#E8D399;--gold-dark:#8c7340;--text-main:#e0e0e0;--text-muted:#999999;--glass-bg:rgba(20,20,20,0.6);--glass-border:rgba(197,160,89,0.25)}*{margin:0;padding:0;box-sizing:border-box}html,body{background-color:#000;width:100%;overflow-x:hidden;scroll-behavior:smooth}.app-wrapper{max-width:430px;margin:0 auto;background-color:var(--bg-main);color:var(--text-main);font-family:'Montserrat',sans-serif;line-height:1.6;position:relative;min-height:100vh;overflow-x:hidden;box-shadow:0 0 30px rgba(0,0,0,0.8)}h1,h2,h3,h4,.serif{font-family:'Playfair Display',serif;font-weight:normal}.container{width:100%;padding:0 20px}.btn{display:block;width:100%;background:linear-gradient(135deg,var(--accent-red) 0%,var(--bright-red) 100%);color:white;padding:20px 0;text-align:center;text-decoration:none;font-family:'Montserrat',sans-serif;font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:1.5px;border-radius:4px;border:1px solid var(--gold);box-shadow:0 0 20px rgba(139,0,0,0.6);transition:all .3s ease}.btn-transparent{display:block;width:100%;background:rgba(255,255,255,0.08);color:var(--text-main);padding:20px 0;text-align:center;text-decoration:none;font-family:'Montserrat',sans-serif;font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:1.5px;border-radius:4px;border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(8px);transition:all .3s ease;margin-top:15px}.btn-transparent:hover{background:rgba(255,255,255,0.15);border-color:var(--gold);color:var(--gold-light)}.btn-outline{background:transparent;border:1px solid var(--gold);box-shadow:none;color:var(--gold-light)}.glow-bg{position:absolute;width:600px;height:600px;background:radial-gradient(circle,var(--dark-red) 0%,transparent 70%);z-index:-1;opacity:0.5;border-radius:50%;filter:blur(40px);pointer-events:none}.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:240px 0 60px 0;background-image:linear-gradient(180deg,rgba(5,5,5,0.2) 0%,rgba(5,5,5,0.9) 100%),url('blok1.jpg');background-size:cover;background-position:center top}.hero-subtitle{color:var(--gold);font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:500;position:absolute;top:50px;left:50%;transform:translateX(-50%);width:100%;padding:0 20px;text-align:center;z-index:20}.hero h1{font-size:3.2rem;color:var(--gold-light);text-shadow:0 4px 15px rgba(0,0,0,0.8),0 0 30px rgba(197,160,89,0.3);margin-bottom:20px;text-transform:uppercase;line-height:1.1}.hero h2{font-size:1.1rem;margin:0 auto 30px;color:var(--text-main);font-weight:300;text-shadow:0 2px 10px rgba(0,0,0,0.8)}section{padding:70px 0;position:relative}section:nth-child(even){background-color:var(--bg-secondary)}#for-whom{background-image:linear-gradient(180deg,rgba(5,5,5,0.92) 0%,rgba(5,5,5,0.98) 100%),url('blok2.jpg');background-size:cover;background-position:center top}.section-title{text-align:center;font-size:2.2rem;color:var(--gold-light);margin-bottom:15px;line-height:1.2}.section-subtitle{text-align:center;color:var(--text-muted);margin-bottom:40px;font-size:1rem}.smoke-card{background-color:#080303;background-image:linear-gradient(to bottom,rgba(10,0,0,0.5) 0%,rgba(5,5,5,0.9) 100%),url('blok2.jpg');background-size:cover;background-position:center;border:1px solid rgba(139,0,0,0.6);padding:30px 20px;border-radius:6px;margin-bottom:20px;position:relative;overflow:hidden;box-shadow:inset 0 0 50px rgba(139,0,0,0.8),0 5px 15px rgba(0,0,0,0.8)}.smoke-card::before{content:'';position:absolute;top:-20%;left:-20%;right:-20%;bottom:-20%;background:radial-gradient(circle at center,rgba(204,0,0,0.5) 0%,rgba(139,0,0,0.15) 50%,transparent 70%);z-index:1;pointer-events:none;filter:blur(20px);mix-blend-mode:screen;animation:smoke-breathe 5s infinite alternate ease-in-out}@keyframes smoke-breathe{0%{transform:scale(1);opacity:0.6}100%{transform:scale(1.1);opacity:1}}.smoke-card-content{position:relative;z-index:2}.smoke-card h3{color:var(--gold-light);font-size:1.25rem;margin-bottom:12px;line-height:1.3;letter-spacing:1px;text-transform:uppercase;text-shadow:0 2px 5px rgba(0,0,0,1)}.smoke-card p{color:#f0f0f0;font-size:0.95rem;text-shadow:0 2px 6px rgba(0,0,0,1)}.glass-card{background:var(--glass-bg);backdrop-filter:blur(10px);border:1px solid var(--glass-border);padding:30px 20px;border-radius:4px;margin-bottom:20px;position:relative}.glass-card h3{color:var(--gold-light);font-size:1.3rem;margin-bottom:15px;line-height:1.3}.tools-list{list-style:none}.tools-list li{position:relative;padding-left:35px;margin-bottom:20px;font-size:1rem}.tools-list li::before{content:"✦";position:absolute;left:0;top:2px;color:var(--gold);font-size:1.2rem}.timeline{position:relative;padding-left:10px}.timeline::before{content:'';position:absolute;top:0;bottom:0;left:16px;width:1px;background:linear-gradient(to bottom,var(--gold) 0%,transparent 100%)}.phase-title{color:var(--accent-red);font-size:1.6rem;margin:40px 0 20px 0;text-align:center;position:relative;z-index:2;background:var(--bg-main);padding:10px 0}.module{position:relative;margin-bottom:35px;padding-left:45px}.module::before{content:'';position:absolute;left:2px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--bg-main);border:2px solid var(--gold);box-shadow:0 0 8px var(--gold)}.module h4{color:var(--gold-light);font-size:1.2rem;margin-bottom:8px}.module span{color:var(--gold-dark);font-size:0.85rem;letter-spacing:1px}.module p{font-size:0.95rem}.learning-step{position:relative;margin-bottom:45px;padding-left:25px}.learning-step::before{content:'';position:absolute;left:0;top:6px;height:100%;width:2px;background:var(--accent-red);box-shadow:0 0 10px var(--accent-red)}.learning-step::after{content:'';position:absolute;left:-4px;top:6px;width:10px;height:10px;background:var(--gold);border-radius:50%;box-shadow:0 0 10px var(--gold)}.learning-number{position:absolute;left:20px;top:-25px;font-family:'Playfair Display',serif;font-size:4.5rem;color:var(--gold);opacity:0.15;z-index:0;line-height:1;font-weight:bold;user-select:none}.learning-content{position:relative;z-index:1}.learning-content h3{color:var(--gold-light);font-size:1.25rem;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;text-shadow:0 2px 5px rgba(0,0,0,0.8)}.learning-content p{color:var(--text-main);font-size:0.95rem;line-height:1.6}.highlight-badge{display:inline-block;background:rgba(139,0,0,0.2);border:1px solid var(--accent-red);color:var(--gold-light);font-size:0.7rem;padding:4px 12px;border-radius:20px;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px}.expert-card{text-align:center;margin-bottom:40px}.expert-photo{width:120px;height:160px;margin:0 auto 15px;border-radius:60px 60px 0 0;border:1px solid var(--gold);background:#1a1a1a;box-shadow:0 10px 25px rgba(0,0,0,0.5);background-image:url('vladaphoto.JPG');background-size:cover;background-position:center top}.expert-card h3{font-size:1.8rem;color:var(--gold-light);margin-bottom:5px;text-transform:uppercase}.expert-card p{font-size:0.95rem;color:var(--text-muted);padding:0 20px}.slider-wrapper{position:relative;display:flex;align-items:center;margin:0 -10px}.slider-container{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:15px;scrollbar-width:none;scroll-behavior:smooth;padding:10px;flex-grow:1}.slider-container::-webkit-scrollbar{display:none}.slider-card{flex:0 0 75%;scroll-snap-align:center;border-radius:8px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:0 5px 15px rgba(0,0,0,0.5);cursor:pointer;background:#111;transition:transform 0.3s;height:350px}.slider-card:hover{border-color:var(--gold);transform:translateY(-3px)}.slider-card img{width:100%;height:100%;object-fit:cover;display:block}.slider-arrow{background:rgba(10,10,10,0.85);border:1px solid var(--gold);color:var(--gold-light);font-size:20px;width:36px;height:36px;display:flex;justify-content:center;align-items:center;cursor:pointer;position:absolute;z-index:10;border-radius:50%;box-shadow:0 0 10px rgba(0,0,0,0.8)}.arrow-left{left:0px;}.arrow-right{right:0px;}.lightbox-overlay{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.95);z-index:99999;justify-content:center;align-items:center;flex-direction:column}.lightbox-overlay.active{display:flex}.lightbox-img{max-width:95%;max-height:85vh;border:1px solid var(--gold);border-radius:8px;box-shadow:0 0 30px rgba(0,0,0,0.8);object-fit:contain}.lightbox-close{position:absolute;top:20px;right:25px;font-size:40px;color:var(--gold);cursor:pointer;line-height:1}.tariff{background:var(--glass-bg);border:1px solid var(--glass-border);padding:40px 25px;border-radius:4px;margin-bottom:30px;position:relative}.tariff.pro{border:2px solid var(--gold);background:linear-gradient(180deg,rgba(30,0,0,0.8) 0%,rgba(10,10,10,0.9) 100%);box-shadow:0 0 30px rgba(139,0,0,0.3)}.tariff.vip{border:2px solid var(--gold);background:linear-gradient(180deg,rgba(197,160,89,0.4) 0%,rgba(10,10,10,0.95) 100%);box-shadow:0 0 35px rgba(197,160,89,0.3)}.hit-label{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:#000;padding:5px 15px;font-weight:bold;font-size:11px;letter-spacing:1px;text-transform:uppercase;border-radius:20px;white-space:nowrap}.hit-label-grey{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#222;color:#aaa;padding:5px 15px;font-weight:500;font-size:11px;letter-spacing:1px;text-transform:uppercase;border-radius:20px;white-space:nowrap;border:1px solid #444}.tariff h3{font-size:1.4rem;text-align:center;margin-bottom:20px;letter-spacing:1px;text-transform:uppercase}.tariff ul{list-style:none;margin-bottom:10px}.tariff ul li{margin-bottom:15px;font-size:0.9rem;padding-left:25px;position:relative}.tariff ul li::before{content:'✓';color:var(--gold);position:absolute;left:0;font-weight:bold}.tariff ul li.disabled{color:#555}.tariff ul li.disabled::before{content:'✕';color:#555;font-weight:normal}.t-price{text-align:center;font-size:2.2rem;font-family:'Playfair Display',serif;color:var(--gold-light);margin-bottom:25px}.old-price{text-decoration:line-through;color:#666;font-size:1.1rem}.special-offer-box{background:linear-gradient(135deg,#2a0000 0%,#050505 100%);border:1px solid var(--gold);padding:40px 20px;text-align:center;border-radius:4px}.special-offer-box h2{font-size:1.8rem;color:var(--gold-light);margin-bottom:15px;line-height:1.3}.special-offer-box p{font-size:1rem;margin-bottom:25px}details{background:rgba(255,255,255,0.02);border:1px solid var(--glass-border);margin-bottom:10px;border-radius:4px}details[open]{border-color:var(--gold)}summary{padding:20px;font-weight:500;color:var(--gold-light);font-size:1rem;list-style:none;position:relative;padding-right:40px}summary::-webkit-details-marker{display:none}summary::after{content:'+';position:absolute;right:20px;top:18px;color:var(--gold);font-size:1.5rem;line-height:1}details[open] summary::after{content:'−'}.faq-content{padding:0 20px 20px;color:var(--text-muted);font-size:0.95rem}footer{border-top:1px solid #222;padding:30px 20px;text-align:center;color:#666;font-size:12px}footer a{color:var(--gold-dark);text-decoration:none}
+:root {--bg-main: #050505; --bg-secondary: #0d0606; --dark-red: #3a0000; --accent-red: #8b0000; --bright-red: #cc0000; --gold: #C5A059; --gold-light: #E8D399; --gold-dark: #8c7340; --text-main: #e0e0e0; --text-muted: #999999; --glass-bg: rgba(20, 20, 20, 0.6); --glass-border: rgba(197, 160, 89, 0.25);}
+* {margin: 0; padding: 0; box-sizing: border-box;}
+html, body {background-color: #000; width: 100%; overflow-x: hidden; scroll-behavior: smooth;}
+.app-wrapper {max-width: 430px; margin: 0 auto; background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.6; position: relative; min-height: 100vh; overflow-x: hidden; box-shadow: 0 0 30px rgba(0,0,0,0.8);}
+h1, h2, h3, h4, .serif {font-family: 'Playfair Display', serif; font-weight: normal;}
+.container {width: 100%; padding: 0 20px;}
+.btn {display: block; width: 100%; background: linear-gradient(135deg, var(--accent-red) 0%, var(--bright-red) 100%); color: white; padding: 20px 0; text-align: center; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 4px; border: 1px solid var(--gold); box-shadow: 0 0 20px rgba(139, 0, 0, 0.6); transition: all .3s ease;}
+.btn-transparent {display: block; width: 100%; background: rgba(255, 255, 255, 0.08); color: var(--text-main); padding: 20px 0; text-align: center; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); transition: all .3s ease; margin-top: 15px;}
+.btn-transparent:hover {background: rgba(255, 255, 255, 0.15); border-color: var(--gold); color: var(--gold-light);}
+.btn-outline {background: transparent; border: 1px solid var(--gold); box-shadow: none; color: var(--gold-light);}
+.glow-bg {position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, var(--dark-red) 0%, transparent 70%); z-index: -1; opacity: 0.5; border-radius: 50%; filter: blur(40px); pointer-events: none;}
+.hero {position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 240px 0 60px 0; background-image: linear-gradient(180deg, rgba(5,5,5,0.2) 0%, rgba(5,5,5,0.9) 100%), url('blok1.jpg'); background-size: cover; background-position: center top;}
+.hero-subtitle {color: var(--gold); font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; position: absolute; top: 50px; left: 50%; transform: translateX(-50%); width: 100%; padding: 0 20px; text-align: center; z-index: 20;}
+.hero h1 {font-size: 3.2rem; color: var(--gold-light); text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(197, 160, 89, 0.3); margin-bottom: 20px; text-transform: uppercase; line-height: 1.1;}
+.hero h2 {font-size: 1.1rem; margin: 0 auto 30px; color: var(--text-main); font-weight: 300; text-shadow: 0 2px 10px rgba(0,0,0,0.8);}
+section {padding: 70px 0; position: relative;}
+section:nth-child(even) {background-color: var(--bg-secondary);}
+#for-whom {background-image: linear-gradient(180deg, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.98) 100%), url('blok2.jpg'); background-size: cover; background-position: center top;}
+.section-title {text-align: center; font-size: 2.2rem; color: var(--gold-light); margin-bottom: 15px; line-height: 1.2;}
+.section-subtitle {text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 1rem;}
+.smoke-card {background-color: #080303; background-image: linear-gradient(to bottom, rgba(10, 0, 0, 0.5) 0%, rgba(5, 5, 5, 0.9) 100%), url('blok2.jpg'); background-size: cover; background-position: center; border: 1px solid rgba(139, 0, 0, 0.6); padding: 30px 20px; border-radius: 6px; margin-bottom: 20px; position: relative; overflow: hidden; box-shadow: inset 0 0 50px rgba(139, 0, 0, 0.8), 0 5px 15px rgba(0,0,0,0.8);}
+.smoke-card::before {content: ''; position: absolute; top: -20%; left: -20%; right: -20%; bottom: -20%; background: radial-gradient(circle at center, rgba(204, 0, 0, 0.5) 0%, rgba(139, 0, 0, 0.15) 50%, transparent 70%); z-index: 1; pointer-events: none; filter: blur(20px); mix-blend-mode: screen; animation: smoke-breathe 5s infinite alternate ease-in-out;}
+@keyframes smoke-breathe {0% {transform: scale(1); opacity: 0.6;} 100% {transform: scale(1.1); opacity: 1;}}
+.smoke-card-content {position: relative; z-index: 2;}
+.smoke-card h3 {color: var(--gold-light); font-size: 1.25rem; margin-bottom: 12px; line-height: 1.3; letter-spacing: 1px; text-transform: uppercase; text-shadow: 0 2px 5px rgba(0,0,0,1);}
+.smoke-card p {color: #f0f0f0; font-size: 0.95rem; text-shadow: 0 2px 6px rgba(0,0,0,1);}
+.glass-card {background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--glass-border); padding: 30px 20px; border-radius: 4px; margin-bottom: 20px; position: relative;}
+.glass-card h3 {color: var(--gold-light); font-size: 1.3rem; margin-bottom: 15px; line-height: 1.3;}
+.tools-list {list-style: none;}
+.tools-list li {position: relative; padding-left: 35px; margin-bottom: 20px; font-size: 1rem;}
+.tools-list li::before {content: "✦"; position: absolute; left: 0; top: 2px; color: var(--gold); font-size: 1.2rem;}
+.timeline {position: relative; padding-left: 10px;}
+.timeline::before {content: ''; position: absolute; top: 0; bottom: 0; left: 16px; width: 1px; background: linear-gradient(to bottom, var(--gold) 0%, transparent 100%);}
+.phase-title {color: var(--accent-red); font-size: 1.6rem; margin: 40px 0 20px 0; text-align: center; position: relative; z-index: 2; background: var(--bg-main); padding: 10px 0;}
+.module {position: relative; margin-bottom: 35px; padding-left: 45px;}
+.module::before {content: ''; position: absolute; left: 2px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg-main); border: 2px solid var(--gold); box-shadow: 0 0 8px var(--gold);}
+.module h4 {color: var(--gold-light); font-size: 1.2rem; margin-bottom: 8px;}
+.module span {color: var(--gold-dark); font-size: 0.85rem; letter-spacing: 1px;}
+.module p {font-size: 0.95rem;}
+.learning-step {position: relative; margin-bottom: 45px; padding-left: 25px;}
+.learning-step::before {content: ''; position: absolute; left: 0; top: 6px; height: 100%; width: 2px; background: var(--accent-red); box-shadow: 0 0 10px var(--accent-red);}
+.learning-step::after {content: ''; position: absolute; left: -4px; top: 6px; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 10px var(--gold);}
+.learning-number {position: absolute; left: 20px; top: -25px; font-family: 'Playfair Display', serif; font-size: 4.5rem; color: var(--gold); opacity: 0.15; z-index: 0; line-height: 1; font-weight: bold; user-select: none;}
+.learning-content {position: relative; z-index: 1;}
+.learning-content h3 {color: var(--gold-light); font-size: 1.25rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 5px rgba(0,0,0,0.8);}
+.learning-content p {color: var(--text-main); font-size: 0.95rem; line-height: 1.6;}
+.highlight-badge {display: inline-block; background: rgba(139, 0, 0, 0.2); border: 1px solid var(--accent-red); color: var(--gold-light); font-size: 0.7rem; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;}
+.expert-card {text-align: center; margin-bottom: 40px;}
+.expert-photo {width: 120px; height: 160px; margin: 0 auto 15px; border-radius: 60px 60px 0 0; border: 1px solid var(--gold); background: #1a1a1a; box-shadow: 0 10px 25px rgba(0,0,0,0.5); background-image: url('vladaphoto.JPG'); background-size: cover; background-position: center top;}
+.expert-card h3 {font-size: 1.8rem; color: var(--gold-light); margin-bottom: 5px; text-transform: uppercase;}
+.expert-card p {font-size: 0.95rem; color: var(--text-muted); padding: 0 20px;}
+.slider-wrapper {position: relative; display: flex; align-items: center; margin: 0 -10px;}
+.slider-container {display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; scrollbar-width: none; scroll-behavior: smooth; padding: 10px; flex-grow: 1;}
+.slider-container::-webkit-scrollbar {display: none;}
+.slider-card {flex: 0 0 75%; scroll-snap-align: center; border-radius: 8px; overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 5px 15px rgba(0,0,0,0.5); cursor: pointer; background: #111; transition: transform 0.3s; height: 350px;}
+.slider-card:hover {border-color: var(--gold); transform: translateY(-3px);}
+.slider-card img {width: 100%; height: 100%; object-fit: cover; display: block;}
+.slider-arrow {background: rgba(10, 10, 10, 0.85); border: 1px solid var(--gold); color: var(--gold-light); font-size: 20px; width: 36px; height: 36px; display: flex; justify-content: center; align-items: center; cursor: pointer; position: absolute; z-index: 10; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.8);}
+.arrow-left {left: 0px;} .arrow-right {right: 0px;}
+.lightbox-overlay {display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.95); z-index: 99999; justify-content: center; align-items: center; flex-direction: column;}
+.lightbox-overlay.active {display: flex;}
+.lightbox-img {max-width: 95%; max-height: 85vh; border: 1px solid var(--gold); border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.8); object-fit: contain;}
+.lightbox-close {position: absolute; top: 20px; right: 25px; font-size: 40px; color: var(--gold); cursor: pointer; line-height: 1;}
+.tariff {background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 40px 25px; border-radius: 4px; margin-bottom: 30px; position: relative;}
+.tariff.pro {border: 2px solid var(--gold); background: linear-gradient(180deg, rgba(30,0,0,0.8) 0%, rgba(10,10,10,0.9) 100%); box-shadow: 0 0 30px rgba(139, 0, 0, 0.3);}
+.tariff.vip {border: 2px solid var(--gold); background: linear-gradient(180deg, rgba(197, 160, 89, 0.4) 0%, rgba(10, 10, 10, 0.95) 100%); box-shadow: 0 0 35px rgba(197, 160, 89, 0.3);}
+.hit-label {position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; padding: 5px 15px; font-weight: bold; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; border-radius: 20px; white-space: nowrap;}
+.hit-label-grey {position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #222; color: #aaa; padding: 5px 15px; font-weight: 500; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; border-radius: 20px; white-space: nowrap; border: 1px solid #444;}
+.tariff h3 {font-size: 1.4rem; text-align: center; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase;}
+.tariff ul {list-style: none; margin-bottom: 10px;} 
+.tariff ul li {margin-bottom: 15px; font-size: 0.9rem; padding-left: 25px; position: relative;}
+.tariff ul li::before {content: '✓'; color: var(--gold); position: absolute; left: 0; font-weight: bold;}
+.tariff ul li.disabled {color: #555;}
+.tariff ul li.disabled::before {content: '✕'; color: #555; font-weight: normal;}
+.t-price {text-align: center; font-size: 2.2rem; font-family: 'Playfair Display', serif; color: var(--gold-light); margin-bottom: 25px;}
+.old-price {text-decoration: line-through; color: #666; font-size: 1.1rem;}
+.special-offer-box {background: linear-gradient(135deg, #2a0000 0%, #050505 100%); border: 1px solid var(--gold); padding: 40px 20px; text-align: center; border-radius: 4px;}
+.special-offer-box h2 {font-size: 1.8rem; color: var(--gold-light); margin-bottom: 15px; line-height: 1.3;}
+.special-offer-box p {font-size: 1rem; margin-bottom: 25px;}
+details {background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); margin-bottom: 10px; border-radius: 4px;}
+details[open] {border-color: var(--gold);}
+summary {padding: 20px; font-weight: 500; color: var(--gold-light); font-size: 1rem; list-style: none; position: relative; padding-right: 40px;}
+summary::-webkit-details-marker {display: none;}
+summary::after {content: '+'; position: absolute; right: 20px; top: 18px; color: var(--gold); font-size: 1.5rem; line-height: 1;}
+details[open] summary::after {content: '−';}
+.faq-content {padding: 0 20px 20px; color: var(--text-muted); font-size: 0.95rem;}
+footer {border-top: 1px solid #222; padding: 30px 20px; text-align: center; color: #666; font-size: 12px;}
+footer a {color: var(--gold-dark); text-decoration: none;}
 </style>
 </head>
 <body>
+
 <div class="app-wrapper">
+
+    <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-subtitle">Авторська програма глибокого переходу</div>
         <div class="container" style="z-index: 10;">
@@ -20,36 +110,44 @@
             <a href="#program" class="btn-transparent">Програма курсу</a>
         </div>
     </header>
+
     <div class="glow-bg" style="top: 100vh; left: -100px;"></div>
     <div class="glow-bg" style="top: 40%; right: -150px; background: radial-gradient(circle, var(--gold-dark) 0%, transparent 60%); opacity: 0.2;"></div>
+
+    <!-- ДЛЯ КОГО -->
     <section id="for-whom">
         <div class="container">
             <h2 class="section-title">ДЛЯ КОГО ЦЕЙ ДОСВІД?</h2>
             <p class="section-subtitle">Цей курс для тебе, якщо твій запит:</p>
+            
             <div class="smoke-card">
                 <div class="smoke-card-content">
                     <h3>Незалежність та автономність</h3>
                     <p>Твій фокус - на створенні власних опор. Ти хочеш вийти з будь-яких співзалежностей (емоційних чи фінансових) і стати тотально автономною особистістю.</p>
                 </div>
             </div>
+
             <div class="smoke-card">
                 <div class="smoke-card-content">
                     <h3>Масштаб та авторитет</h3>
                     <p>Ти відчуваєш свій величезний потенціал, але впираєшся в «невидиму стелю». Тобі потрібна сміливість заявити про себе, стати авторитетом у своїй справі та витримувати велику увагу.</p>
                 </div>
             </div>
+
             <div class="smoke-card">
                 <div class="smoke-card-content">
                     <h3>Фінансова реалізація</h3>
                     <p>Ти розумієш, що твої фінанси напряму залежать від твоєї енергетичної ємності, і ти готова розблокувати тіньову агресію та силу, щоб пробити фінансовий блок.</p>
                 </div>
             </div>
+
             <div class="smoke-card">
                 <div class="smoke-card-content">
                     <h3>Сексуальність та проявленість</h3>
                     <p>Ти хочеш розбудити свою природну магнетичність, дозволити собі бути справжньою, вільною, творчою і сексуальною без почуття провини чи сорому.</p>
                 </div>
             </div>
+
             <div class="smoke-card">
                 <div class="smoke-card-content">
                     <h3>Рівноправні стосунки</h3>
@@ -58,15 +156,20 @@
             </div>
         </div>
     </section>
+
+    <!-- ІНСТРУМЕНТИ -->
     <section style="padding-bottom: 0;">
         <div class="container">
             <h2 class="section-title" style="font-size: 1.8rem;">Практичні інструменти трансформації всередині програми:</h2>
         </div>
         <img src="blok3.jpg" alt="Інструменти занурення" style="width: 100%; height: auto; display: block; margin-top: 30px;">
     </section>
+
+    <!-- РЕЗУЛЬТАТИ -->
     <section id="results">
         <div class="container">
             <h2 class="section-title">Результати, з якими ти вийдеш:</h2>
+            
             <div class="glass-card">
                 <h3>Глибока інтеграція Тіні</h3>
                 <p>Ти припиниш відкидати свої «незручні» чи «темні» сторони і нарешті приймеш себе повністю цілісною, вивільнивши колосальний об'єм енергії, який раніше йшов на внутрішню боротьбу.</p>
@@ -98,6 +201,8 @@
             <a href="#tariffs" class="btn" style="margin-top: 40px;">Придбати курс</a>
         </div>
     </section>
+
+    <!-- ПРОГРАМА -->
     <section id="program" style="padding-bottom: 0;">
         <div class="container">
             <h2 class="section-title">Твій план занурення</h2>
@@ -105,10 +210,13 @@
         </div>
         <img src="block5.jpg" alt="План занурення" style="width: 100%; height: auto; display: block; margin-top: 30px;">
     </section>
+
+    <!-- ЯК ПРОХОДИТИМЕ НАВЧАННЯ -->
     <section id="how-it-works">
         <div class="container">
             <h2 class="section-title">Як проходитиме навчання</h2>
             <p class="section-subtitle" style="margin-bottom: 40px;">Це не черговий курс заради красивого сертифіката, який припадатиме пилом на полиці. Це глибока трансформаційна програма, яка змінює твої базові внутрішні налаштування.</p>
+            
             <div class="learning-step">
                 <div class="learning-content">
                     <h3 style="display: flex; align-items: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px; color: var(--gold); flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Комфортний ритм</h3>
@@ -140,6 +248,8 @@
             <a href="#tariffs" class="btn">Придбати курс</a>
         </div>
     </section>
+
+    <!-- ЕКСПЕРТИ -->
     <section>
         <div class="container">
             <h2 class="section-title">Твій провідник</h2>
@@ -162,6 +272,8 @@
             </div>
         </div>
     </section>
+
+    <!-- ЩО КАЖУТЬ УЧАСНИЦІ -->
     <section id="reviews-slider">
         <div class="container">
             <h2 class="section-title">Що кажуть учасниці</h2>
@@ -184,6 +296,8 @@
             </div>
         </div>
     </section>
+
+    <!-- ТАРИФИ -->
     <section id="tariffs">
         <div class="container">
             <h2 class="section-title" style="margin-bottom: 40px;">Тарифи Участі</h2>
@@ -203,7 +317,7 @@
                     <li class="disabled">Журнали інтеграції (шаблони)</li>
                 </ul>
                 <div class="t-price"><span class="old-price">359€</span><br>199€</div>
-                <a href="#" class="btn btn-outline">Придбати тариф</a>
+                <a href="https://secure.wayforpay.com/button/b7e912f29d760" class="btn btn-outline" target="_blank">Придбати тариф</a>
             </div>
             <div class="tariff pro">
                 <div class="hit-label">Повне занурення</div>
@@ -221,7 +335,7 @@
                     <li style="color: var(--gold-light);">Журнали інтеграції (шаблони)</li>
                 </ul>
                 <div class="t-price"><span class="old-price">888€</span><br>444€</div>
-                <a href="#" class="btn">Придбати PRO</a>
+                <a href="https://secure.wayforpay.com/button/b0e677fa5d9e3" class="btn" target="_blank">Придбати PRO</a>
             </div>
             <div class="tariff vip">
                 <h3 style="color: var(--gold-light);">VIP (Наставництво)</h3>
@@ -234,10 +348,12 @@
                     <li>Безкоштовний доступ до платного каналу на 2 місяці</li>
                 </ul>
                 <div class="t-price"><span class="old-price">1500€</span><br>1200€</div>
-                <a href="#" class="btn btn-outline">Анкета на VIP</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJYNk3PcHeq5NeiFo0qAqJwUesJbaO03tiMonf4AKAkcZqLw/viewform" class="btn btn-outline" target="_blank">Анкета на VIP</a>
             </div>
         </div>
     </section>
+
+    <!-- СПЕЦПРОПОЗИЦІЯ -->
     <section>
         <div class="container">
             <div class="special-offer-box">
@@ -250,10 +366,12 @@
                     <li><b>Доступ до навчання Х2</b> (матеріали залишаться з тобою вдвічі довше).</li>
                 </ul>
                 <p style="font-size: 1rem; color: var(--gold-light); margin-bottom: 20px; font-weight: 500; font-style: italic;">Твоя трансформація починається з першого кроку</p>
-                <a href="#" class="btn">Внести бронь</a>
+                <a href="https://secure.wayforpay.com/button/b85bf130aecdc" class="btn" target="_blank">Внести бронь</a>
             </div>
         </div>
     </section>
+
+    <!-- FAQ -->
     <section>
         <div class="container">
             <h2 class="section-title">Часті запитання</h2>
@@ -267,17 +385,23 @@
             <details><summary>Робота з Тінню звучить трохи лякаюче. Що, якщо я не впораюся з тим?</summary><div class="faq-content">Йти в Тінь страшно тільки тоді, коли ти йдеш туди сама і наосліп. У цій програмі я даю тобі чітку, безпечну систему. Ми не будемо «колупатися в травмах» заради самого болю чи страждань. Ми йдемо туди як алхіміки - виключно для того, щоб забрати звідти твій заблокований ресурс, сексуальність та грошову енергію.</div></details>
         </div>
     </section>
+
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p>Авторська програма Владислави <br><a href="https://instagram.com/vlada_n_slava" target="_blank">@vlada_n_slava</a></p>
             <p style="margin-top: 10px;">Алхімія Тіні © 2026. Всі права захищено.</p>
         </div>
     </footer>
+
 </div>
+
+<!-- МОДАЛЬНЕ ВІКНО -->
 <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
     <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
     <img class="lightbox-img" id="lightbox-img" src="" alt="Відгук">
 </div>
+
 <script>
     function scrollReviewSlider(direction) {const container = document.getElementById('review-carousel'); const scrollAmount = container.clientWidth * 0.75; container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });}
     function openLightbox(imgSrc) {const overlay = document.getElementById('lightbox'); const img = document.getElementById('lightbox-img'); img.src = imgSrc; overlay.classList.add('active');}
